@@ -1,0 +1,43 @@
+---
+import { urlForImage } from "../sanity/lib/url-for-image";
+
+const { node } = Astro.props;
+const { asset, alt, caption } = node;
+
+const imageUrl = urlForImage(asset).url();
+const webpUrl = urlForImage(asset).format("webp").url();
+---
+
+<figure class="portable-text-image">
+  <picture>
+    <source srcset={webpUrl} type="image/webp" />
+    <img 
+      src={imageUrl} 
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .portable-text-image {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  .portable-text-image img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+  .portable-text-image figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--gray-text, #666);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+const navLinks = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/blog", label: "Blog" },
+  { path: "/resources", label: "Resources" },
+  { path: "/events", label: "Events" },
+  { path: "/contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (path: string) => {
+  if (path === "/" && currentPath === "/") return true;
+  if (path !== "/" && currentPath.startsWith(path)) return true;
+  return false;
+};
+---
+
+<nav class="bg-white border-b-2 border-[#D4C9B0] sticky top-0 z-50">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-between h-20">
+      <a href="/" class="flex items-center group">
+        <div>
+          <div class="font-['Playfair_Display'] text-2xl font-bold text-[#1A3C2E] tracking-tight">
+            Ghana IP Pulse
+          </div>
+          <div class="font-['Archivo_Narrow'] text-xs uppercase tracking-wider text-[#5A5A4A] mt-0.5">
+            Dr Doreen Adoma Agyei
+          </div>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.path}
+            class="relative font-['Archivo_Narrow'] text-sm uppercase tracking-wider text-[#141414] hover:text-[#C8992A] transition-colors group"
+          >
+            {link.label}
+            <span
+              class={`absolute -bottom-[21px] left-0 right-0 h-0.5 bg-[#C8992A] transition-all ${
+                isActive(link.path) ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+              }`}
+            />
+          </a>
+        ))}
+
+        <a
+          href="/contact"
+          class="bg-[#C8992A] text-[#141414] px-6 py-3 font-['Archivo_Narrow'] text-sm uppercase tracking-wider hover:bg-transparent hover:text-[#141414] border-2 border-[#C8992A] transition-all"
+        >
+          Get in Touch
+        </a>
+      </div>
+
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden p-2 text-[#141414]"
+        aria-label="Toggle menu"
+      >
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-[#D4C9B0] py-6">
+      <div class="flex flex-col gap-4">
+        {navLinks.map((link) => (
+          <a
+            href={link.path}
+            class={`font-['Archivo_Narrow'] text-sm uppercase tracking-wider py-2 border-l-4 pl-4 transition-colors ${
+              isActive(link.path)
+                ? "border-[#C8992A] text-[#C8992A]"
+                : "border-transparent text-[#141414] hover:border-[#D4C9B0] hover:text-[#C8992A]"
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="bg-[#C8992A] text-[#141414] px-6 py-3 font-['Archivo_Narrow'] text-sm uppercase tracking-wider text-center mt-4"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const button = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  button?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+    menuIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
+  });
+</script>

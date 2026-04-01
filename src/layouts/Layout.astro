@@ -1,0 +1,31 @@
+---
+import { VisualEditing } from "@sanity/astro/visual-editing";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | Ghana IP Pulse` : "Ghana IP Pulse";
+const metaDescription = description || "Expert guidance on intellectual property law for entrepreneurs, creatives, and students navigating Ghana's innovation landscape.";
+
+const visualEditingEnabled =
+  import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED === "true";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={metaDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+    <VisualEditing enabled={visualEditingEnabled} />
+  </body>
+</html>
