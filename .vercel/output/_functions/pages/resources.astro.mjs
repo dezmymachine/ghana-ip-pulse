@@ -1,0 +1,93 @@
+import '../chunks/page-ssr_CZGsHcuX.mjs';
+import { e as createComponent, k as renderComponent, o as renderScript, r as renderTemplate, m as maybeRenderHead, g as addAttribute } from '../chunks/astro/server_Ckj7vkEy.mjs';
+import 'piccolore';
+import { $ as $$Layout, a as $$Navigation, b as $$Footer } from '../chunks/Footer_goDCtEOC.mjs';
+import { l as loadQuery } from '../chunks/load-query_DcSwAUO7.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Resources = createComponent(async ($$result, $$props, $$slots) => {
+  const { data: resources } = await loadQuery({
+    query: `*[_type == "resource"] | order(title asc)`
+  });
+  const externalResources = [
+    {
+      name: "Ghana Intellectual Property Commission (GIPC)",
+      description: "Official government body for IP registration and enforcement in Ghana.",
+      url: "https://www.ghanaip.gov.gh",
+      logo: "GIPC"
+    },
+    {
+      name: "African Regional Intellectual Property Organization (ARIPO)",
+      description: "Regional body coordinating IP systems across member African states.",
+      url: "https://www.aripo.org",
+      logo: "ARIPO"
+    },
+    {
+      name: "Copyright Office of Ghana",
+      description: "National authority for copyright registration and collective management.",
+      url: "https://www.copyright.gov.gh",
+      logo: "Copyright Office"
+    },
+    {
+      name: "World Intellectual Property Organization (WIPO)",
+      description: "UN agency providing global IP services and policy coordination.",
+      url: "https://www.wipo.int",
+      logo: "WIPO"
+    }
+  ];
+  const faqs = [
+    {
+      question: "How long does trademark registration take in Ghana?",
+      answer: "The trademark registration process with GIPC typically takes 12-18 months from application to grant, assuming no objections or opposition. The timeline includes examination (3-6 months), publication in the IP journal (3 months opposition period), and certificate issuance. Expedited processing may be available for certain cases."
+    },
+    {
+      question: "What is the difference between copyright and trademark?",
+      answer: "Copyright protects original creative works like music, art, literature, and software. It arises automatically upon creation but can be registered for enforcement benefits. Trademark protects brand identifiers like names, logos, and slogans that distinguish goods or services. Trademarks must be registered to receive legal protection in Ghana and require renewal every 10 years."
+    },
+    {
+      question: "Can I patent a business idea?",
+      answer: "No, ideas alone cannot be patented. Patents protect inventions\u2014tangible solutions to technical problems. Your idea must be reduced to a concrete invention with novelty, inventive step, and industrial applicability. Business methods, software algorithms, and abstract concepts generally do not qualify for patent protection in Ghana unless they solve a specific technical problem."
+    },
+    {
+      question: "How much does it cost to register a trademark in Ghana?",
+      answer: "As of 2026, GIPC charges approximately GHS 1,200-1,800 for a standard trademark application (varies by class of goods/services). Additional costs include legal fees if using an IP attorney (GHS 2,000-5,000), search fees (GHS 200-400), and renewal fees every 10 years (GHS 800-1,200). Students and small businesses may qualify for reduced fees."
+    },
+    {
+      question: "Do I need to register my copyright in Ghana?",
+      answer: "Copyright protection in Ghana is automatic upon creation of an original work. However, registration with the Copyright Office provides legal presumption of ownership and is strongly recommended for enforcement purposes. Registration costs approximately GHS 50-150 and provides official documentation useful in disputes or licensing negotiations."
+    },
+    {
+      question: "What can I do if someone infringes my IP rights?",
+      answer: "IP infringement remedies in Ghana include: (1) Cease and desist letters demanding the infringer stop using your IP; (2) Negotiated settlements or licensing agreements; (3) Administrative complaints with GIPC or Copyright Office; (4) Civil litigation seeking injunctions and damages; (5) Criminal prosecution in serious cases. The appropriate remedy depends on the type of IP, severity of infringement, and your enforcement goals. Consult an IP attorney to evaluate your options."
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Resources" }, { "default": async ($$result2) => renderTemplate` ${renderComponent($$result2, "Navigation", $$Navigation, {})} ${maybeRenderHead()}<main class="flex-1"> <div class="bg-[#F7F4EF]"> <section class="bg-white border-b-4 border-[#C8992A] py-20"> <div class="max-w-[1440px] mx-auto px-6 lg:px-12"> <div class="flex items-baseline gap-4 mb-6"> <span class="font-['Playfair_Display'] text-6xl text-[#C8992A]">§</span> <h1 class="font-['Playfair_Display'] text-6xl lg:text-7xl font-bold text-[#1A3C2E]">
+Resources
+</h1> </div> <div class="w-32 h-1 bg-[#C8992A] mb-6"></div> <p class="font-['Source_Serif_4'] text-xl text-[#5A5A4A] max-w-3xl">
+Practical guides, templates, and institutional links to support your intellectual property journey in Ghana.
+</p> </div> </section> <section class="py-20 border-b-2 border-[#D4C9B0]"> <div class="max-w-[1440px] mx-auto px-6 lg:px-12"> <h2 class="font-['Playfair_Display'] text-4xl font-bold text-[#1A3C2E] mb-12">
+Downloadable Guides
+</h2> <div class="bg-white border-2 border-[#D4C9B0]"> ${resources?.filter((r) => r.type === "Guide" || r.type === "Template").map((resource, index, filteredResources) => renderTemplate`<div${addAttribute(`grid md:grid-cols-[1fr_auto] gap-6 items-center p-8 hover:bg-[#F7F4EF] transition-colors group ${index !== filteredResources.length - 1 ? "border-b-2 border-[#D4C9B0]" : ""}`, "class")}> <div> <h3 class="font-['DM_Serif_Display'] text-2xl text-[#141414] mb-2 group-hover:text-[#1A3C2E] transition-colors"> ${resource.title} </h3> <p class="font-['Source_Serif_4'] text-base text-[#5A5A4A] mb-3 leading-relaxed"> ${resource.description} </p> <div class="flex items-center gap-4 font-['Archivo_Narrow'] text-xs uppercase tracking-wider text-[#5A5A4A]"> <span class="bg-[#F7F4EF] px-2 py-1 border border-[#D4C9B0]"> ${resource.type} </span> </div> </div> ${resource.file && renderTemplate`<a${addAttribute(resource.file, "href")} target="_blank" rel="noopener noreferrer" class="bg-[#C8992A] text-[#141414] px-6 py-4 font-['Archivo_Narrow'] text-sm uppercase tracking-wider hover:bg-[#1A3C2E] hover:text-white border-2 border-transparent hover:border-[#1A3C2E] transition-all inline-flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+Download
+</a>`} </div>`)} ${(!resources || resources.filter((r) => r.type === "Guide" || r.type === "Template").length === 0) && renderTemplate`<div class="p-8 text-center text-[#5A5A4A] font-['Source_Serif_4']">
+No downloadable guides available yet. Check back soon!
+</div>`} </div> </div> </section> <section class="py-20 border-b-2 border-[#D4C9B0]"> <div class="max-w-[1440px] mx-auto px-6 lg:px-12"> <h2 class="font-['Playfair_Display'] text-4xl font-bold text-[#1A3C2E] mb-12">
+External Resources
+</h2> <div class="grid md:grid-cols-2 gap-6"> ${externalResources.map((resource) => renderTemplate`<a${addAttribute(resource.url, "href")} target="_blank" rel="noopener noreferrer" class="bg-white border-2 border-[#D4C9B0] p-8 hover:border-[#1A3C2E] hover:shadow-[4px_4px_0px_0px_rgba(26,60,46,1)] transition-all group"> <div class="flex items-start justify-between mb-4"> <div class="w-20 h-20 bg-[#1A3C2E] flex items-center justify-center"> <span class="font-['Archivo_Narrow'] text-xs uppercase tracking-wider text-[#C8992A] text-center px-2"> ${resource.logo} </span> </div> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#C8992A] group-hover:text-[#1A3C2E]"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg> </div> <h3 class="font-['DM_Serif_Display'] text-xl text-[#141414] mb-2 group-hover:text-[#1A3C2E] transition-colors"> ${resource.name} </h3> <p class="font-['Source_Serif_4'] text-base text-[#5A5A4A] leading-relaxed"> ${resource.description} </p> </a>`)} </div> </div> </section> <section class="py-20"> <div class="max-w-[1440px] mx-auto px-6 lg:px-12"> <h2 class="font-['Playfair_Display'] text-4xl font-bold text-[#1A3C2E] mb-12">
+Frequently Asked Questions
+</h2> <div class="bg-white border-2 border-[#D4C9B0]" id="faq-container"> ${faqs.map((faq, index) => renderTemplate`<div${addAttribute(`${index !== faqs.length - 1 ? "border-b-2 border-[#D4C9B0]" : ""}`, "class")}> <button class="faq-toggle w-full flex items-center justify-between p-8 text-left hover:bg-[#F7F4EF] transition-colors"${addAttribute(index, "data-index")}> <h3 class="font-['DM_Serif_Display'] text-xl text-[#141414] pr-6"> ${faq.question} </h3> <div class="faq-icon flex-shrink-0 w-8 h-8 border-2 border-[#1A3C2E] flex items-center justify-center text-[#1A3C2E]"> <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg> <svg class="minus-icon hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path></svg> </div> </button> <div class="faq-answer hidden px-8 pb-8"${addAttribute(index, "data-index")}> <p class="font-['Source_Serif_4'] text-lg text-[#5A5A4A] leading-relaxed border-l-4 border-[#C8992A] pl-6"> ${faq.answer} </p> </div> </div>`)} </div> </div> </section> </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })} ${renderScript($$result, "/home/dezmymachine/work/ip_site/astro_version/src/pages/resources.astro?astro&type=script&index=0&lang.ts")}`;
+}, "/home/dezmymachine/work/ip_site/astro_version/src/pages/resources.astro", void 0);
+
+const $$file = "/home/dezmymachine/work/ip_site/astro_version/src/pages/resources.astro";
+const $$url = "/resources";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Resources,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
