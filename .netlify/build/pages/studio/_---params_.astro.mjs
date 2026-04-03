@@ -1,4 +1,4 @@
-import '../../chunks/page-ssr_WmuL1Alx.mjs';
+import '../../chunks/page-ssr_BHj4Dr6r.mjs';
 import { c as createComponent, e as addAttribute, n as renderHead, i as renderComponent, r as renderTemplate, f as createAstro } from '../../chunks/astro/server_DEKaHIU-.mjs';
 import 'piccolore';
 /* empty css                                           */
