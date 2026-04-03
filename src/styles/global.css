@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --forest-green: #1A3C2E;
-  --warm-gold: #C8992A;
-  --linen: #F7F4EF;
+  --forest-green: #0D3B2E;
+  --forest-green-light: #1A5A48;
+  --warm-gold: #B8860B;
+  --cream: #F5F0E8;
   --near-black: #141414;
   --muted-text: #5A5A4A;
   --white: #FFFFFF;
-  --rule-border: #D4C9B0;
+  --rule-border: #E8E2D9;
 }
 
 @layer base {
@@ -20,6 +21,12 @@
   }
 
   body {
-    @apply bg-linen text-near-black font-body;
+    @apply bg-cream text-near-black font-body;
+  }
+}
+
+@layer utilities {
+  .radial-glow {
+    background: radial-gradient(ellipse at center, rgba(26, 90, 72, 0.4) 0%, transparent 70%);
   }
 }

@@ -4,21 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        'forest-green': '#1A3C2E',
-        'warm-gold': '#C8992A',
-        'linen': '#F7F4EF',
+        'forest-green': '#0D3B2E',
+        'forest-green-light': '#1A5A48',
+        'warm-gold': '#B8860B',
+        'cream': '#F5F0E8',
         'near-black': '#141414',
         'muted-text': '#5A5A4A',
-        'rule-border': '#D4C9B0',
+        'rule-border': '#E8E2D9',
       },
       fontFamily: {
-        'heading': ['Playfair Display', 'serif'],
-        'subheading': ['DM Serif Display', 'serif'],
-        'body': ['Source Serif 4', 'serif'],
-        'label': ['Archivo Narrow', 'sans-serif'],
+        'heading': ['Sora', 'sans-serif'],
+        'body': ['Sora', 'sans-serif'],
       },
       borderRadius: {
-        'none': '0px',
+        'pill': '999px',
+        'card': '20px',
       },
     },
   },
