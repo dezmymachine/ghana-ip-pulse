@@ -5,122 +5,202 @@ import Footer from "../components/Footer.astro";
 import ImageWithFallback from "../components/ImageWithFallback.astro";
 
 const credentials = [
-  { label: "Education", value: "PhD in Intellectual Property Law, University of Ghana" },
-  { label: "Bar Admission", value: "Ghana Bar Association, 2014" },
+  { label: "Education", value: "PhD in Intellectual Property Law, University of Michigan, USA (2023)" },
+  { label: "Qualifications", value: "LLB (KNUST), BL (Ghana Law School), LLM (Herts), LLM (Umich)" },
   { label: "Specialization", value: "Copyright, Trademark, and Patent Law" },
-  { label: "Experience", value: "12+ years in IP law and education" },
-  { label: "Affiliations", value: "African Regional Intellectual Property Organization (ARIPO)" },
-  { label: "Publications", value: "15+ peer-reviewed articles on West African IP law" },
+  { label: "Current Role", value: "Lecturer, Department of Commercial Law, KNUST" },
+  { label: "Affiliations", value: "IP Network Ghana (Vice President), Ghana Bar Association" },
+  { label: "Publications", value: "10+ peer-reviewed articles on IP law in Africa" },
+];
+
+const education = [
+  { period: "2022-2023", degree: "PhD in Intellectual Property Law", institution: "University of Michigan, USA" },
+  { period: "2021-2022", degree: "LLM", institution: "University of Michigan, USA" },
+  { period: "2018", degree: "I.P. Litigation Training Certificate", institution: "Practising Law Institute, New York" },
+  { period: "2016", degree: "I.P. Training Certificate", institution: "University of Cambridge, UK" },
+  { period: "2010-2011", degree: "LLM", institution: "University of Hertfordshire, UK" },
+  { period: "2007-2009", degree: "BL", institution: "Ghana Law School, Accra" },
+  { period: "2003-2007", degree: "LLB", institution: "KNUST, Kumasi" },
+];
+
+const experience = [
+  { period: "2023 - Date", role: "Lecturer", organization: "Department of Commercial Law, KNUST" },
+  { period: "2012-2023", role: "Assistant Lecturer", organization: "Department of Commercial Law, KNUST" },
+  { period: "2012 - Date", role: "Law Practitioner", organization: "Moomin and Botta Solicitors, Kumasi" },
+  { period: "2009-2010", role: "Law Practitioner", organization: "Holy Trinity Law Firm, Kumasi" },
+];
+
+const awards = [
+  { year: "2021-2022", title: "University of Michigan Grotius Scholarship" },
+  { year: "2019-2020", title: "University of Michigan African Presidential Scholar (UMAPS)" },
+  { year: "2010-2011", title: "University of Hertfordshire Chancellor's International Scholarship" },
+];
+
+const publications = [
+  { title: "The Right to adequate Food and Security of Supply: Reinforcing the Role of Intellectual Property Rights", journal: "African Journal of International and Comparative Law" },
+  { title: "Amedume v Asante: Rethinking Performer Vulnerability in Copyright and Neighbouring Rights Transfers in Ghana", journal: "KNUST Law Journal" },
+  { title: "Producers' Vs Directors: Who Holds the Creative Rights? A Critical Analysis of Film Authorship in Ghana's Copyright Law", journal: "UPSA Africa International & Comparative Law Journal" },
+  { title: "Copyright Infringement and Enforcement in Ghana: A Comparative Study", journal: "PhD Published Dissertation, University of Michigan" },
+  { title: "Bridging the International gap in the protection of folklore: Analysis of the Ghanaian approach", journal: "Texas Intellectual Property Law Journal" },
 ];
 ---
 
 <Layout title="About">
   <Navigation />
   <main class="flex-1 pt-24 lg:pt-28">
-    <div class="bg-cream">
-      <section class="bg-white border-b-4 border-warm-gold py-20">
+    <div class="bg-cream max-w-full overflow-x-hidden">
+      <section class="bg-white border-b-4 border-warm-gold py-12 lg:py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="flex items-baseline gap-4 mb-6">
-            <span class="text-6xl text-warm-gold">§</span>
-            <h1 class="text-6xl lg:text-7xl font-bold text-forest-green">
-              About Dr Agyei
+          <div class="flex items-baseline gap-2 lg:gap-4 mb-4 lg:mb-6">
+            <span class="text-4xl lg:text-6xl text-warm-gold" style="font-size: clamp(28px, 6vw, 48px);">§</span>
+            <h1 class="text-3xl lg:text-7xl font-bold text-forest-green" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+              About Dr Doreen Adoma Agyei
             </h1>
           </div>
-          <div class="w-32 h-1 bg-warm-gold"></div>
+          <div class="w-24 lg:32 h-1 bg-warm-gold"></div>
         </div>
       </section>
 
-      <section class="py-20">
+      <section class="py-12 lg:py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="grid lg:grid-cols-2 gap-16 mb-24">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-16 lg:mb-24">
             <div>
-              <div class="border-4 border-forest-green overflow-hidden">
-                <div class="aspect-[3/4] bg-[#D4C9B0]">
+              <div class="border-2 lg:border-4 border-forest-green rounded-card overflow-hidden">
+                <div class="aspect-[3/4] lg:aspect-[3/4] bg-[#D4C9B0]">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1686628332798-757c624c4b08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwd29tYW4lMjBsYXd5ZXIlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzQ4MDgxOTZ8MA&ixlib=rb-4.1.0&q=80&w=800"
+                    src="/headshot.png"
                     alt="Dr Doreen Adoma Agyei"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover object-top"
                   />
                 </div>
               </div>
             </div>
 
             <div>
-              <div class="mb-12">
-                <h2 class="text-4xl text-forest-green mb-6">
+              <div class="mb-8 lg:mb-12">
+                <h2 class="text-2xl lg:text-4xl text-forest-green mb-4 lg:mb-6" style="word-break: break-word;">
                   Bridging Law and Innovation
                 </h2>
-                <div class="space-y-6 text-lg text-near-black leading-relaxed">
+                <div class="space-y-4 lg:space-y-6 text-base lg:text-lg text-near-black leading-relaxed">
                   <p>
-                    Dr Doreen Adoma Agyei is a leading intellectual property law expert specializing in the intersection of innovation, creativity, and legal protection in Ghana and across West Africa. With over a decade of experience in IP law, she has become a trusted voice for entrepreneurs, artists, and policymakers navigating the complexities of intellectual property rights.
+                    Dr Doreen Adoma Agyei is a distinguished intellectual property law expert and lecturer at Kwame Nkrumah University of Science and Technology (KNUST), Kumasi. With over a decade of experience in IP law and legal education, she has become a leading voice for entrepreneurs, artists, and policymakers navigating intellectual property rights in Ghana and across Africa.
                   </p>
                   <p>
-                    Her work focuses on democratizing access to IP knowledge, ensuring that Ghana's innovators—from tech startups to traditional artisans—understand how to protect and monetize their creative and commercial assets. Through Ghana IP Pulse, she provides practical education, legal analysis, and strategic guidance tailored to the African context.
+                    Her academic journey includes a PhD in Intellectual Property Law from the University of Michigan, USA (2023), where her research focused on copyright infringement and enforcement in Ghana. She also holds an LLM from the University of Michigan, another LLM from the University of Hertfordshire, UK, and a BL from Ghana Law School.
                   </p>
                   <p>
-                    Dr Agyei holds a PhD in Intellectual Property Law from the University of Ghana, where her research examined the effectiveness of regional IP frameworks in fostering economic development. She is a member of the Ghana Bar Association and has advised numerous organizations, including the Ghana Intellectual Property Commission (GIPC) and the African Regional Intellectual Property Organization (ARIPO).
+                    Dr Doreen Adoma Agyei serves as Vice President of IP Network Ghana and practices law at Moomin and Botta Solicitors, Kumasi. Her work focuses on democratizing access to IP knowledge, ensuring that Ghana's innovators—from tech startups to traditional artisans—understand how to protect and monetize their creative and commercial assets.
                   </p>
                   <p>
-                    Beyond her legal practice, Dr Agyei is a passionate educator. She regularly conducts workshops for creative professionals, lectures at universities, and publishes scholarly articles on copyright, trademark, and patent law. Her commitment is to ensure that intellectual property law serves as a tool for empowerment, not exclusion.
+                    She has published extensively on copyright law, traditional cultural expressions (including Kente cloth protection), and comparative IP studies. Her research has appeared in the Texas Intellectual Property Law Journal, African Journal of International and Comparative Law, and KNUST Law Journal.
                   </p>
                 </div>
               </div>
 
-              <div class="border-l-4 border-warm-gold pl-8 py-6 bg-white">
-                <p class="text-3xl italic text-forest-green leading-relaxed">
+              <div class="border-l-4 border-warm-gold pl-4 lg:pl-8 py-4 lg:py-6 bg-white rounded-r-lg">
+                <p class="text-lg lg:text-3xl italic text-forest-green leading-relaxed" style="word-break: break-word;">
                   "Intellectual property law should never be a barrier to innovation. It should be the foundation upon which Ghana's creative and entrepreneurial economy is built."
                 </p>
-                <div class="mt-4 text-sm uppercase tracking-wider text-muted-text">
+                <div class="mt-3 lg:mt-4 text-xs lg:text-sm uppercase tracking-wider text-muted-text">
                   — Dr Doreen Adoma Agyei
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="mb-24">
-            <h2 class="text-4xl font-bold text-forest-green mb-8">
-              Credentials & Expertise
+          <div class="mb-16 lg:mb-24">
+            <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-6 lg:mb-8" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+              Education
             </h2>
             <div class="bg-white border-2 border-rule-border">
-              {credentials.map((credential, index) => (
+              {education.map((edu, index) => (
                 <div
-                  class={`grid md:grid-cols-3 gap-4 p-6 ${
-                    index !== credentials.length - 1 ? "border-b border-rule-border" : ""
+                  class={`grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                    index !== education.length - 1 ? "border-b border-rule-border" : ""
                   }`}
                 >
-                  <div class="text-sm uppercase tracking-wider text-muted-text">
-                    {credential.label}
+                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                    {edu.period}
                   </div>
-                  <div class="md:col-span-2 text-lg text-near-black">
-                    {credential.value}
+                  <div>
+                    <div class="text-base lg:text-lg text-near-black font-medium">
+                      {edu.degree}
+                    </div>
+                    <div class="text-sm lg:text-base text-muted-text">
+                      {edu.institution}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div>
-            <div class="flex items-baseline gap-4 mb-8">
-              <span class="text-5xl text-warm-gold">§</span>
-              <h2 class="text-4xl font-bold text-forest-green">
-                Why I Do This Work
-              </h2>
+          <div class="mb-16 lg:mb-24">
+            <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-6 lg:mb-8" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+              Work Experience
+            </h2>
+            <div class="bg-white border-2 border-rule-border">
+              {experience.map((exp, index) => (
+                <div
+                  class={`grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                    index !== experience.length - 1 ? "border-b border-rule-border" : ""
+                  }`}
+                >
+                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                    {exp.period}
+                  </div>
+                  <div>
+                    <div class="text-base lg:text-lg text-near-black font-medium">
+                      {exp.role}
+                    </div>
+                    <div class="text-sm lg:text-base text-muted-text">
+                      {exp.organization}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div class="bg-white border-2 border-rule-border p-10 lg:p-16">
-              <div class="space-y-6 text-lg text-near-black leading-relaxed max-w-4xl">
-                <p>
-                  Growing up in Ghana, I witnessed countless talented individuals—musicians, inventors, designers—lose control of their creations simply because they didn't understand their legal rights. Intellectual property law felt like an exclusive domain, accessible only to large corporations or those with expensive lawyers.
-                </p>
-                <p>
-                  That disconnect drove me to pursue a career in IP law with a mission: to make this field understandable, accessible, and actionable for everyday Ghanaians. Whether you're a solo entrepreneur protecting your brand, a musician securing your compositions, or a student researching innovation policy, you deserve clear, practical guidance.
-                </p>
-                <p>
-                  Ghana IP Pulse exists to bridge the gap between complex legal frameworks and real-world application. Through articles, workshops, and consultations, I aim to empower Ghana's creative and entrepreneurial community to protect what they build, enforce their rights when necessary, and navigate the IP landscape with confidence.
-                </p>
-                <p>
-                  This work is about more than law—it's about equity, economic empowerment, and ensuring that the next generation of Ghanaian innovators can thrive in a system that respects and protects their contributions.
-                </p>
-              </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-6 lg:mb-8" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+              Awards & Scholarships
+            </h2>
+            <div class="bg-white border-2 border-rule-border">
+              {awards.map((award, index) => (
+                <div
+                  class={`grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                    index !== awards.length - 1 ? "border-b border-rule-border" : ""
+                  }`}
+                >
+                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                    {award.year}
+                  </div>
+                  <div class="text-base lg:text-lg text-near-black">
+                    {award.title}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-6 lg:mb-8" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+              Selected Publications
+            </h2>
+            <div class="bg-white border-2 border-rule-border">
+              {publications.map((pub, index) => (
+                <div
+                  class={`p-4 lg:p-6 ${index !== publications.length - 1 ? "border-b border-rule-border" : ""}`}
+                >
+                  <div class="text-base lg:text-lg text-near-black font-medium mb-1" style="word-break: break-word;">
+                    {pub.title}
+                  </div>
+                  <div class="text-sm lg:text-base text-muted-text italic">
+                    {pub.journal}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
