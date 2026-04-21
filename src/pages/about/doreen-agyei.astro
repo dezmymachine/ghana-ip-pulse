@@ -1,0 +1,195 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import ImageWithFallback from "../../components/ImageWithFallback.astro";
+
+const education = [
+  { period: "2022-2023", degree: "PhD in Intellectual Property Law", institution: "University of Michigan, USA" },
+  { period: "2021-2022", degree: "LLM", institution: "University of Michigan, USA" },
+  { period: "2018", degree: "I.P. Litigation Training Certificate", institution: "Practising Law Institute, New York" },
+  { period: "2016", degree: "I.P. Training Certificate", institution: "University of Cambridge, UK" },
+  { period: "2010-2011", degree: "LLM", institution: "University of Hertfordshire, UK" },
+  { period: "2007-2009", degree: "BL", institution: "Ghana Law School, Accra" },
+  { period: "2003-2007", degree: "LLB", institution: "KNUST, Kumasi" },
+];
+
+const experience = [
+  { period: "2023 - Date", role: "Lecturer", organization: "Department of Commercial Law, KNUST" },
+  { period: "2012-2023", role: "Assistant Lecturer", organization: "Department of Commercial Law, KNUST" },
+  { period: "2012 - Date", role: "Law Practitioner", organization: "Moomin and Botta Solicitors, Kumasi" },
+  { period: "2009-2010", role: "Law Practitioner", organization: "Holy Trinity Law Firm, Kumasi" },
+];
+
+const awards = [
+  { year: "2021-2022", title: "University of Michigan Grotius Scholarship" },
+  { year: "2019-2020", title: "University of Michigan African Presidential Scholar (UMAPS)" },
+  { year: "2010-2011", title: "University of Hertfordshire Chancellor's International Scholarship" },
+];
+
+const publications = [
+  { title: "The Right to adequate Food and Security of Supply: Reinforcing the Role of Intellectual Property Rights", journal: "African Journal of International and Comparative Law" },
+  { title: "Amedume v Asante: Rethinking Performer Vulnerability in Copyright and Neighbouring Rights Transfers in Ghana", journal: "KNUST Law Journal" },
+  { title: "Producers' Vs Directors: Who Holds the Creative Rights? A Critical Analysis of Film Authorship in Ghana's Copyright Law", journal: "UPSA Africa International & Comparative Law Journal" },
+  { title: "Copyright Infringement and Enforcement in Ghana: A Comparative Study", journal: "PhD Published Dissertation, University of Michigan" },
+  { title: "Bridging the International gap in the protection of folklore: Analysis of the Ghanaian approach", journal: "Texas Intellectual Property Law Journal" },
+];
+---
+
+<Layout title="Dr Doreen Adoma Agyei">
+  <Navigation />
+  <main class="flex-1 pt-5 lg:pt-6">
+    <div class="bg-cream">
+      <section class="py-12 lg:py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+          <a href="/about" class="inline-flex items-center gap-2 text-muted-text hover:text-forest-green transition-colors text-sm mb-8 font-body">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Back to Leadership
+          </a>
+
+          <div class="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16 mb-16 lg:mb-24">
+            <div>
+              <div class="border-2 border-forest-green rounded-card overflow-hidden sticky top-24 w-fit max-w-[280px]">
+                <ImageWithFallback
+                  src="/headshot_1.jpeg"
+                  alt="Dr Doreen Adoma Agyei"
+                  class="w-[280px] h-auto object-cover object-top"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p class="text-sm uppercase tracking-wider text-warm-gold font-body font-semibold mb-2">
+                Co-Founder & IP Law Expert
+              </p>
+              <h1 class="font-heading text-3xl lg:text-4xl font-bold text-forest-green mb-6">
+                Dr Doreen Adoma Agyei
+              </h1>
+
+              <div class="space-y-4 lg:space-y-6 text-base lg:text-lg text-near-black leading-relaxed mb-8">
+                <p>
+                  Dr Doreen Adoma Agyei is a distinguished intellectual property law expert and lecturer at Kwame Nkrumah University of Science and Technology (KNUST), Kumasi. With over a decade of experience in IP law and legal education, she has become a leading voice for entrepreneurs, artists, and policymakers navigating intellectual property rights in Ghana and across Africa.
+                </p>
+                <p>
+                  Her academic journey includes a PhD in Intellectual Property Law from the University of Michigan, USA (2023), where her research focused on copyright infringement and enforcement in Ghana. She also holds an LLM from the University of Michigan, another LLM from the University of Hertfordshire, UK, and a BL from Ghana Law School.
+                </p>
+                <p>
+                  Dr Doreen Adoma Agyei serves as Vice President of IP Network Ghana and practices law at Moomin and Botta Solicitors, Kumasi. Her work focuses on democratizing access to IP knowledge, ensuring that Ghana's innovators—from tech startups to traditional artisans—understand how to protect and monetize their creative and commercial assets.
+                </p>
+                <p>
+                  She has published extensively on copyright law, traditional cultural expressions (including Kente cloth protection), and comparative IP studies. Her research has appeared in the Texas Intellectual Property Law Journal, African Journal of International and Comparative Law, and KNUST Law Journal.
+                </p>
+              </div>
+
+              <div class="border-l-4 border-warm-gold pl-4 lg:pl-8 py-4 lg:py-6 bg-white rounded-r-lg">
+                <p class="text-lg lg:text-2xl italic text-forest-green leading-relaxed">
+                  "Intellectual property law should never be a barrier to innovation. It should be the foundation upon which Ghana's creative and entrepreneurial economy is built."
+                </p>
+                <div class="mt-3 lg:mt-4 text-xs lg:text-sm uppercase tracking-wider text-muted-text">
+                  — Dr Doreen Adoma Agyei
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+              Education
+            </h2>
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+              {education.map((edu, index) => (
+                <div
+                  class={`grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                    index !== education.length - 1 ? "border-b border-rule-border" : ""
+                  }`}
+                >
+                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                    {edu.period}
+                  </div>
+                  <div>
+                    <div class="text-base lg:text-lg text-near-black font-medium">
+                      {edu.degree}
+                    </div>
+                    <div class="text-sm lg:text-base text-muted-text">
+                      {edu.institution}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+              Work Experience
+            </h2>
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+              {experience.map((exp, index) => (
+                <div
+                  class={`grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                    index !== experience.length - 1 ? "border-b border-rule-border" : ""
+                  }`}
+                >
+                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                    {exp.period}
+                  </div>
+                  <div>
+                    <div class="text-base lg:text-lg text-near-black font-medium">
+                      {exp.role}
+                    </div>
+                    <div class="text-sm lg:text-base text-muted-text">
+                      {exp.organization}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+              Awards & Scholarships
+            </h2>
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+              {awards.map((award, index) => (
+                <div
+                  class={`grid grid-cols-1 lg:grid-cols-[140px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                    index !== awards.length - 1 ? "border-b border-rule-border" : ""
+                  }`}
+                >
+                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                    {award.year}
+                  </div>
+                  <div class="text-base lg:text-lg text-near-black">
+                    {award.title}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+              Selected Publications
+            </h2>
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+              {publications.map((pub, index) => (
+                <div
+                  class={`p-4 lg:p-6 ${index !== publications.length - 1 ? "border-b border-rule-border" : ""}`}
+                >
+                  <div class="text-base lg:text-lg text-near-black font-medium mb-1" style="word-break: break-word;">
+                    {pub.title}
+                  </div>
+                  <div class="text-sm lg:text-base text-muted-text italic">
+                    {pub.journal}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>

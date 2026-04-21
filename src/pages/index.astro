@@ -55,37 +55,34 @@ const topics = [
 
 <Layout title="Home">
   <Navigation />
-  <main class="flex-1 pt-24 lg:pt-28">
-    <section class="bg-forest-green relative overflow-hidden pt-16 lg:pt-24">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-[45%_55%]">
-          <div class="px-6 lg:px-12 pb-6 lg:pb-32 flex flex-col justify-end min-h-[300px] lg:min-h-[500px]">
-            <h1 class="font-heading text-white font-bold leading-[1.15] mb-4" style="font-size: clamp(32px, 4vw, 48px);">
+  <main class="flex-1 pt-5 lg:pt-6">
+    <section class="bg-cream py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="flex flex-col">
+            <h1 class="font-heading text-forest-green font-bold leading-[1.15] mb-6" style="font-size: clamp(32px, 4vw, 52px);">
               Protecting Ghana's Ideas, One Conversation at a Time
             </h1>
-            
-            <p class="font-body text-base text-white/70 mb-6 max-w-sm">
+
+            <p class="font-body text-muted-text text-lg mb-8 max-w-lg leading-relaxed">
               Expert guidance on intellectual property law for entrepreneurs, creatives, and students navigating Ghana's innovation landscape.
             </p>
-            
+
             <a
               href="/blog"
-              class="inline-flex items-center gap-2 bg-warm-gold text-near-black px-5 py-2.5 rounded-pill font-body font-semibold hover:bg-[#9A7209] transition-colors text-sm w-fit"
+              class="inline-flex items-center gap-2 bg-forest-green text-white px-6 py-3 rounded-pill font-body font-semibold hover:bg-opacity-90 transition-colors w-fit"
             >
               Explore Articles
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
-          
-          <div class="relative h-[280px] lg:h-full min-h-[280px] lg:min-h-[500px] lg:min-h-[600px]">
-            <div class="absolute inset-0 w-full h-full">
-              <div class="absolute inset-0 bg-gradient-to-t from-forest-green via-transparent to-transparent z-10"></div>
-              <img 
-                src="/headshot.png" 
-                alt="Dr Doreen Adoma Agyei"
-                class="absolute inset-0 w-full h-full object-cover object-top"
-              />
-            </div>
+
+          <div class="flex justify-center lg:justify-end">
+            <img
+              src="/headshot_1.jpeg"
+              alt="Dr Doreen Adoma Agyei"
+              class="w-full max-w-md lg:max-w-lg h-auto object-cover rounded-2xl shadow-xl"
+            />
           </div>
         </div>
       </div>

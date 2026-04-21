@@ -71,30 +71,15 @@ const faqs = [
 
 <Layout title="Resources">
   <Navigation />
-  <main class="flex-1 pt-24 lg:pt-28">
+  <main class="flex-1 pt-5 lg:pt-6">
     <div class="bg-cream max-w-full overflow-x-hidden">
-      <section class="bg-white border-b-4 border-warm-gold py-12 lg:py-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="flex items-baseline gap-2 lg:gap-4 mb-4 lg:mb-6">
-            <span class="text-4xl lg:text-6xl text-warm-gold" style="font-size: clamp(28px, 6vw, 48px);">§</span>
-            <h1 class="text-3xl lg:text-7xl font-bold text-forest-green" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
-              Resources
-            </h1>
-          </div>
-          <div class="w-24 lg:32 h-1 bg-warm-gold mb-4 lg:mb-6"></div>
-          <p class="text-base lg:text-xl text-muted-text max-w-3xl">
-            Practical guides, templates, and institutional links to support your intellectual property journey in Ghana.
-          </p>
-        </div>
-      </section>
-
       <section class="py-12 lg:py-20 border-b-2 border-rule-border">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
             Downloadable Guides
           </h2>
 
-          <div class="bg-white border-2 border-rule-border">
+          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
             {resources?.filter((r: any) => r.type === "Guide" || r.type === "Template").map((resource: any, index: number, filteredResources: any[]) => (
               <div
                 class={`grid lg:grid-cols-[1fr_auto] gap-4 lg:gap-6 items-center p-4 lg:p-8 hover:bg-cream transition-colors group ${
@@ -109,7 +94,7 @@ const faqs = [
                     {resource.description}
                   </p>
                   <div class="flex items-center gap-4 text-xs uppercase tracking-wider text-muted-text">
-                    <span class="bg-cream px-2 py-1 border border-rule-border">
+                    <span class="bg-cream px-2 py-1 border border-rule-border rounded-pill">
                       {resource.type}
                     </span>
                   </div>
@@ -119,7 +104,7 @@ const faqs = [
                     href={resource.file}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="bg-warm-gold text-near-black px-4 lg:px-6 py-3 lg:py-4 text-sm uppercase tracking-wider hover:bg-forest-green hover:text-white border-2 border-transparent hover:border-forest-green transition-all inline-flex items-center gap-2 w-full lg:w-auto justify-center"
+                    class="bg-warm-gold text-near-black px-4 lg:px-6 py-3 lg:py-4 text-sm uppercase tracking-wider hover:bg-forest-green hover:text-white border-2 border-transparent hover:border-forest-green transition-all inline-flex items-center gap-2 w-full lg:w-auto justify-center rounded-pill"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                     Download
@@ -148,10 +133,10 @@ const faqs = [
                 href={resource.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-white border-2 border-rule-border p-4 lg:p-8 hover:border-forest-green hover:shadow-[4px_4px_0px_0px_rgba(26,60,46,1)] transition-all group"
+                 class="bg-white border-2 border-rule-border p-4 lg:p-8 rounded-lg hover:border-forest-green hover:shadow-[4px_4px_0px_0px_rgba(26,60,46,1)] transition-all group"
               >
                 <div class="flex items-start justify-between mb-4">
-                  <div class="w-16 lg:w-20 h-16 lg:h-20 bg-forest-green flex items-center justify-center">
+                   <div class="w-16 lg:w-20 h-16 lg:h-20 bg-forest-green flex items-center justify-center rounded-lg">
                     <span class="text-xs uppercase tracking-wider text-warm-gold text-center px-2">
                       {resource.logo}
                     </span>
@@ -176,7 +161,7 @@ const faqs = [
             Frequently Asked Questions
           </h2>
 
-          <div class="bg-white border-2 border-rule-border" id="faq-container">
+          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden" id="faq-container">
             {faqs.map((faq, index) => (
               <div class={`${index !== faqs.length - 1 ? "border-b-2 border-rule-border" : ""}`}>
                 <button
@@ -186,7 +171,7 @@ const faqs = [
                   <h3 class="text-base lg:text-xl text-near-black pr-4" style="word-break: break-word;">
                     {faq.question}
                   </h3>
-                  <div class="faq-icon flex-shrink-0 w-8 h-8 border-2 border-forest-green flex items-center justify-center text-forest-green">
+                   <div class="faq-icon flex-shrink-0 w-8 h-8 border-2 border-forest-green rounded-full flex items-center justify-center text-forest-green">
                     <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                     <svg class="minus-icon hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
                   </div>

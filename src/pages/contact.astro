@@ -2,138 +2,117 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+
+const contacts = [
+  {
+    label: "Email",
+    value: "daagyei.law@knust.edu.gh",
+    href: "mailto:daagyei.law@knust.edu.gh",
+    description: "For consultations, speaking engagements, or general inquiries",
+  },
+  {
+    label: "WhatsApp",
+    value: "+233 276 414 414",
+    href: "https://wa.me/233276414414",
+    description: "For quick questions or workshop registrations",
+  },
+  {
+    label: "Phone",
+    value: "+233 (0) 3220 0710",
+    href: "tel:+233322000710",
+    description: "Office line — available during working hours",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/doreen-agyei-836524232",
+    href: "https://www.linkedin.com/in/doreen-agyei-836524232/",
+    description: "Connect for professional networking and updates",
+  },
+];
 ---
 
 <Layout title="Contact">
   <Navigation />
-  <main class="flex-1 pt-24 lg:pt-28">
-    <div class="bg-cream max-w-full overflow-x-hidden">
-      <section class="bg-white border-b-4 border-warm-gold py-12 lg:py-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="flex items-baseline gap-2 lg:gap-4 mb-4 lg:mb-6">
-            <span class="text-4xl lg:text-6xl text-warm-gold" style="font-size: clamp(28px, 6vw, 48px);">§</span>
-            <h1 class="text-3xl lg:text-7xl font-bold text-forest-green" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
-              Contact
-            </h1>
-          </div>
-          <div class="w-24 lg:32 h-1 bg-warm-gold"></div>
-        </div>
-      </section>
-
-      <section class="py-16 lg:py-32">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="max-w-3xl mx-auto text-center">
-            <p class="text-base lg:text-2xl text-muted-text leading-relaxed mb-12 lg:mb-16">
-              Whether you're seeking IP guidance, partnership opportunities, or have questions about my work, I'd be glad to hear from you.
-            </p>
-
-            <div class="mb-12 lg:mb-16">
-              <div class="inline-flex items-center justify-center w-16 lg:w-20 h-16 lg:h-20 bg-forest-green mb-4 lg:mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-warm-gold"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              </div>
-              <h2 class="text-xs uppercase tracking-wider text-muted-text mb-2 lg:mb-3">
-                Email
-              </h2>
-              <a
-                href="mailto:daagyei.law@knust.edu.gh"
-                class="text-2xl lg:text-5xl font-bold text-forest-green hover:text-warm-gold transition-colors block mb-4" style="word-break: break-word;"
-              >
-                daagyei.law@knust.edu.gh
-              </a>
-              <p class="text-sm lg:text-base text-muted-text">
-                For consultations, speaking engagements, or general inquiries
-              </p>
-            </div>
-
-            <div class="w-16 lg:24 h-px bg-rule-border mx-auto mb-12 lg:mb-16"></div>
-
-            <div class="mb-12 lg:mb-16">
-              <div class="inline-flex items-center justify-center w-16 lg:w-20 h-16 lg:h-20 bg-forest-green mb-4 lg:mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-warm-gold"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-              </div>
-              <h2 class="text-xs uppercase tracking-wider text-muted-text mb-2 lg:mb-3">
-                WhatsApp
-              </h2>
-              <a
-                href="https://wa.me/233276414414"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-xl lg:text-3xl text-forest-green hover:text-warm-gold transition-colors block mb-4" style="word-break: break-word;"
-              >
-                +233 276 414 414
-              </a>
-              <p class="text-sm lg:text-base text-muted-text">
-                For quick questions or workshop registrations
-              </p>
-            </div>
-
-            <div class="w-16 lg:24 h-px bg-rule-border mx-auto mb-12 lg:mb-16"></div>
-
-            <div class="mb-12 lg:mb-16">
-              <div class="inline-flex items-center justify-center w-16 lg:w-20 h-16 lg:h-20 bg-forest-green mb-4 lg:mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-warm-gold"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <h2 class="text-xs uppercase tracking-wider text-muted-text mb-2 lg:mb-3">
-                Phone
-              </h2>
-              <a
-                href="tel:+233322000710"
-                class="text-xl lg:text-3xl text-forest-green hover:text-warm-gold transition-colors block mb-4" style="word-break: break-word;"
-              >
-                +233 (0) 3220 0710
-              </a>
-              <p class="text-sm lg:text-base text-muted-text">
-                Office line - available during working hours
-              </p>
-            </div>
-
-            <div class="w-16 lg:24 h-px bg-rule-border mx-auto mb-12 lg:mb-16"></div>
-
-            <div>
-              <h2 class="text-xs uppercase tracking-wider text-muted-text mb-4 lg:mb-6">
-                Connect on Social Media
-              </h2>
-              <div class="flex justify-center gap-6 lg:8">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group flex flex-col items-center"
-                >
-                  <div class="w-12 lg:w-16 h-12 lg:h-16 border-2 border-rule-border hover:border-forest-green flex items-center justify-center transition-all mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-forest-green group-hover:text-warm-gold"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                  </div>
-                  <span class="text-xs lg:text-sm text-muted-text group-hover:text-forest-green transition-colors">
-                    LinkedIn
-                  </span>
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group flex flex-col items-center"
-                >
-                  <div class="w-12 lg:w-16 h-12 lg:h-16 border-2 border-rule-border hover:border-forest-green flex items-center justify-center transition-all mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-forest-green group-hover:text-warm-gold"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-                  </div>
-                  <span class="text-xs lg:text-sm text-muted-text group-hover:text-forest-green transition-colors">
-                    Twitter
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-12 lg:py-16 bg-forest-green text-white border-t-4 border-warm-gold">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <p class="text-sm lg:text-base text-white/70 max-w-2xl mx-auto">
-            I aim to respond to all inquiries within 2-3 business days. For urgent matters, please indicate "URGENT" in your subject line or WhatsApp message.
+  <main class="flex-1 pt-5 lg:pt-6">
+    <div class="bg-cream min-h-[60vh]">
+      <section class="py-16 lg:py-24">
+        <div class="max-w-5xl mx-auto px-6 lg:px-12">
+          <h1 class="font-heading text-4xl lg:text-5xl font-bold text-forest-green mb-4">
+            Contact
+          </h1>
+          <p class="text-lg lg:text-xl text-muted-text max-w-2xl mb-12 lg:mb-16 leading-relaxed">
+            For IP guidance, partnership opportunities, or any questions about my work, I'd be glad to hear from you. I aim to respond within 2–3 business days.
           </p>
+
+          <div class="grid md:grid-cols-2 gap-4 lg:gap-6 mb-12 lg:mb-16">
+            {contacts.map((contact) => (
+              <a
+                href={contact.href}
+                target={contact.label === "LinkedIn" || contact.label === "WhatsApp" ? "_blank" : undefined}
+                rel={(contact.label === "LinkedIn" || contact.label === "WhatsApp") ? "noopener noreferrer" : undefined}
+                class="group bg-white rounded-lg p-6 lg:p-8 hover:shadow-md transition-shadow flex items-start justify-between gap-4"
+              >
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-muted-text mb-2 font-body">
+                    {contact.label}:
+                  </p>
+                  <p class="text-lg lg:text-xl text-near-black font-medium group-hover:text-forest-green transition-colors" style="word-break: break-word;">
+                    {contact.value}
+                  </p>
+                  <p class="text-sm text-muted-text mt-2 hidden sm:block">
+                    {contact.description}
+                  </p>
+                </div>
+                <button
+                  class="copy-btn flex-shrink-0 w-9 h-9 rounded-md border border-rule-border flex items-center justify-center text-muted-text hover:text-forest-green hover:border-forest-green transition-colors"
+                  data-value={contact.value}
+                  aria-label={`Copy ${contact.value}`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+              </a>
+            ))}
+          </div>
+
+          <div class="bg-white rounded-lg p-6 lg:p-8">
+            <p class="text-xs uppercase tracking-wider text-muted-text mb-4 font-body">
+              Professional Details
+            </p>
+            <div class="space-y-1 text-near-black leading-relaxed">
+              <p class="text-base lg:text-lg">Dr Doreen Adoma Agyei</p>
+              <p class="text-base lg:text-lg">Lecturer, Department of Commercial Law</p>
+              <p class="text-base lg:text-lg">Kwame Nkrumah University of Science and Technology (KNUST)</p>
+              <p class="text-base lg:text-lg">Kumasi, Ghana</p>
+              <p class="text-sm text-muted-text mt-3">
+                Vice President, IP Network Ghana &nbsp;·&nbsp; Law Practitioner at Moomin and Botta Solicitors
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   </main>
   <Footer />
 </Layout>
+
+<script>
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const value = (btn as HTMLElement).dataset.value;
+      if (value) {
+        navigator.clipboard.writeText(value);
+        const svg = btn.querySelector("svg");
+        if (svg) {
+          svg.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+        }
+        setTimeout(() => {
+          if (svg) {
+            svg.innerHTML = '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>';
+          }
+        }, 1500);
+      }
+    });
+  });
+</script>

@@ -26,23 +26,8 @@ const pastEvents = [
 
 <Layout title="Events">
   <Navigation />
-  <main class="flex-1 pt-24 lg:pt-28">
+  <main class="flex-1 pt-5 lg:pt-6">
     <div class="bg-cream">
-      <section class="bg-white border-b-4 border-warm-gold py-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="flex items-baseline gap-4 mb-6">
-            <span class="text-6xl text-warm-gold">§</span>
-            <h1 class="text-6xl lg:text-7xl font-bold text-forest-green">
-              Events
-            </h1>
-          </div>
-          <div class="w-32 h-1 bg-warm-gold mb-6"></div>
-          <p class="text-xl text-muted-text max-w-3xl">
-            Join our workshops, seminars, and conferences designed to build your intellectual property knowledge and connect with Ghana's innovation community.
-          </p>
-        </div>
-      </section>
-
       <section class="py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 class="text-4xl font-bold text-forest-green mb-12">
@@ -57,10 +42,10 @@ const pastEvents = [
                 <article
                   class={`bg-white border-l-4 ${
                     isFeatured ? "border-warm-gold" : "border-forest-green"
-                  } border-r border-t border-b border-rule-border hover:shadow-[6px_6px_0px_0px_rgba(26,60,46,0.1)] transition-all group`}
+                  } border-r border-t border-b border-rule-border hover:shadow-[6px_6px_0px_0px_rgba(26,60,46,0.1)] transition-all group rounded-lg`}
                 >
                   <div class="grid lg:grid-cols-[auto_1fr_auto] gap-8 p-8 lg:p-10">
-                    <div class="flex flex-col items-center justify-center bg-forest-green text-white px-8 py-6 min-w-[140px]">
+                    <div class="flex flex-col items-center justify-center bg-forest-green text-white px-8 py-6 min-w-[140px] rounded-lg">
                       <div class="text-5xl font-bold leading-none">
                         {dateParts.day}
                       </div>
@@ -75,7 +60,7 @@ const pastEvents = [
                     <div>
                       {isFeatured && (
                         <div class="mb-3">
-                          <span class="bg-warm-gold text-near-black px-3 py-1 text-xs uppercase tracking-wider">
+                          <span class="bg-warm-gold text-near-black px-3 py-1 text-xs uppercase tracking-wider rounded-pill">
                             Featured Event
                           </span>
                         </div>
@@ -102,7 +87,7 @@ const pastEvents = [
 
                     <div class="flex flex-col justify-center">
                       <div class="mb-4">
-                        <span class="text-xs uppercase tracking-wider text-forest-green bg-cream px-3 py-2 border border-rule-border">
+                         <span class="text-xs uppercase tracking-wider text-forest-green bg-cream px-3 py-2 border border-rule-border rounded-pill">
                           Open for Registration
                         </span>
                       </div>
@@ -111,7 +96,7 @@ const pastEvents = [
                           href={event.registrationLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="bg-forest-green text-white px-6 py-4 text-sm uppercase tracking-wider hover:bg-warm-gold hover:text-near-black transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                          class="bg-forest-green text-white px-6 py-4 text-sm uppercase tracking-wider hover:bg-warm-gold hover:text-near-black transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill"
                         >
                           Register Now
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -132,7 +117,7 @@ const pastEvents = [
             Past Events
           </h2>
 
-          <div class="bg-white border-2 border-rule-border">
+          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
             {pastEvents.map((event, index) => (
               <div
                 class={`grid md:grid-cols-3 gap-4 items-center p-6 ${
@@ -168,9 +153,9 @@ const pastEvents = [
               <input
                 type="email"
                 placeholder="Your email address"
-                class="flex-1 px-6 py-4 border-2 border-rule-border bg-cream text-base focus:outline-none focus:border-forest-green"
+                 class="flex-1 px-6 py-4 border-2 border-rule-border bg-cream text-base focus:outline-none focus:border-forest-green rounded-lg"
               />
-              <button class="bg-forest-green text-white px-8 py-4 text-sm uppercase tracking-wider hover:bg-warm-gold hover:text-near-black transition-all">
+              <button class="bg-forest-green text-white px-8 py-4 text-sm uppercase tracking-wider hover:bg-warm-gold hover:text-near-black transition-all rounded-lg">
                 Subscribe
               </button>
             </div>
