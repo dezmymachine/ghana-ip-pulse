@@ -28,7 +28,7 @@ const projects = [
 
 <Layout title="Esther Mensah">
   <Navigation />
-  <main class="flex-1 pt-5 lg:pt-6">
+  <main class="flex-1 pt-24 lg:pt-28">
     <div class="bg-cream">
       <section class="py-12 lg:py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -39,7 +39,7 @@ const projects = [
 
           <div class="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16 mb-16 lg:mb-24">
             <div>
-              <div class="border-2 border-forest-green rounded-card overflow-hidden sticky top-24 w-fit max-w-[280px]">
+              <div class="rounded-card overflow-hidden sticky top-24 w-fit max-w-[280px] shadow-sm animate-on-scroll">
                 <ImageWithFallback
                   src="/second_founder.png"
                   alt="Esther Mensah"
@@ -49,14 +49,14 @@ const projects = [
             </div>
 
             <div>
-              <p class="text-sm uppercase tracking-wider text-warm-gold font-body font-semibold mb-2">
+              <p class="text-sm uppercase tracking-wider text-warm-gold font-body font-semibold mb-2 animate-on-scroll" data-delay="1">
                 Co-Founder & Strategy Lead
               </p>
-              <h1 class="font-heading text-3xl lg:text-4xl font-bold text-forest-green mb-6">
+              <h1 class="font-heading text-3xl lg:text-4xl font-bold text-forest-green mb-6 animate-on-scroll" data-delay="2">
                 Esther Mensah
               </h1>
 
-              <div class="space-y-4 lg:space-y-6 text-base lg:text-lg text-near-black leading-relaxed mb-8">
+              <div class="space-y-4 lg:space-y-6 text-base lg:text-lg text-near-black leading-relaxed mb-8 animate-on-scroll" data-delay="3">
                 <p>
                   Esther Mensah is an experienced innovation strategist with a deep passion for bridging the gap between legal frameworks and creative industries. Her work spans policy development, capacity building for early-stage startups, and advocacy for stronger intellectual property ecosystems across West Africa.
                 </p>
@@ -71,7 +71,7 @@ const projects = [
                 </p>
               </div>
 
-              <div class="border-l-4 border-warm-gold pl-4 lg:pl-8 py-4 lg:py-6 bg-white rounded-r-lg">
+              <div class="border-l-4 border-warm-gold pl-4 lg:pl-8 py-4 lg:py-6 bg-white rounded-r-lg animate-on-scroll" data-delay="4">
                 <p class="text-lg lg:text-2xl italic text-forest-green leading-relaxed">
                   "When we make IP protection simple and accessible, we don't just protect ideas—we unlock entire industries."
                 </p>
@@ -83,10 +83,10 @@ const projects = [
           </div>
 
           <div class="mb-16 lg:mb-24">
-            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
               Education
             </h2>
-            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
               {education.map((edu, index) => (
                 <div
                   class={`grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
@@ -110,10 +110,10 @@ const projects = [
           </div>
 
           <div class="mb-16 lg:mb-24">
-            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
               Work Experience
             </h2>
-            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
               {experience.map((exp, index) => (
                 <div
                   class={`grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
@@ -137,10 +137,10 @@ const projects = [
           </div>
 
           <div class="mb-16 lg:mb-24">
-            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
               Key Projects
             </h2>
-            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
               {projects.map((project, index) => (
                 <div
                   class={`grid grid-cols-1 lg:grid-cols-[100px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${

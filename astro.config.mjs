@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import netlify from "@astrojs/netlify";
 import sanity from "@sanity/astro";
-import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import { loadEnv } from "vite";
 
@@ -25,18 +24,5 @@ export default defineConfig({
       apiVersion: "2025-01-28",
       studioBasePath: "/studio",
     }),
-    react(),
   ],
-  vite: {
-    optimizeDeps: {
-      include: [
-        "react/compiler-runtime",
-        "lodash/isObject.js",
-        "lodash/groupBy.js",
-        "lodash/keyBy.js",
-        "lodash/partition.js",
-        "lodash/sortedIndex.js",
-      ],
-    },
-  },
 });

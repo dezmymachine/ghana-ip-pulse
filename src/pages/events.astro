@@ -26,11 +26,11 @@ const pastEvents = [
 
 <Layout title="Events">
   <Navigation />
-  <main class="flex-1 pt-5 lg:pt-6">
+  <main class="flex-1 pt-24 lg:pt-28">
     <div class="bg-cream">
       <section class="py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-4xl font-bold text-forest-green mb-12">
+          <h2 class="text-4xl font-bold text-forest-green mb-12 animate-on-scroll">
             Upcoming Events
           </h2>
 
@@ -42,7 +42,8 @@ const pastEvents = [
                 <article
                   class={`bg-white border-l-4 ${
                     isFeatured ? "border-warm-gold" : "border-forest-green"
-                  } border-r border-t border-b border-rule-border hover:shadow-[6px_6px_0px_0px_rgba(26,60,46,0.1)] transition-all group rounded-lg`}
+                  } border-r border-t border-b border-rule-border hover:shadow-[6px_6px_0px_0px_rgba(26,60,46,0.1)] transition-all group rounded-lg animate-on-scroll`}
+                  data-delay={String(index + 1)}
                 >
                   <div class="grid lg:grid-cols-[auto_1fr_auto] gap-8 p-8 lg:p-10">
                     <div class="flex flex-col items-center justify-center bg-forest-green text-white px-8 py-6 min-w-[140px] rounded-lg">
@@ -113,11 +114,11 @@ const pastEvents = [
 
       <section class="py-20 border-t-2 border-rule-border">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-4xl font-bold text-forest-green mb-12">
+          <h2 class="text-4xl font-bold text-forest-green mb-12 animate-on-scroll">
             Past Events
           </h2>
 
-          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll">
             {pastEvents.map((event, index) => (
               <div
                 class={`grid md:grid-cols-3 gap-4 items-center p-6 ${
@@ -141,7 +142,7 @@ const pastEvents = [
 
       <section class="py-20 bg-white border-t-4 border-warm-gold">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <div class="max-w-2xl mx-auto">
+          <div class="max-w-2xl mx-auto animate-on-scroll">
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-warm-gold mx-auto mb-6"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
             <h2 class="text-4xl font-bold text-forest-green mb-6">
               Stay Updated on Upcoming Events

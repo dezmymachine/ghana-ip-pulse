@@ -71,15 +71,15 @@ const faqs = [
 
 <Layout title="Resources">
   <Navigation />
-  <main class="flex-1 pt-5 lg:pt-6">
+  <main class="flex-1 pt-24 lg:pt-28">
     <div class="bg-cream max-w-full overflow-x-hidden">
       <section class="py-12 lg:py-20 border-b-2 border-rule-border">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12 animate-on-scroll" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
             Downloadable Guides
           </h2>
 
-          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden">
+          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll">
             {resources?.filter((r: any) => r.type === "Guide" || r.type === "Template").map((resource: any, index: number, filteredResources: any[]) => (
               <div
                 class={`grid lg:grid-cols-[1fr_auto] gap-4 lg:gap-6 items-center p-4 lg:p-8 hover:bg-cream transition-colors group ${
@@ -123,17 +123,18 @@ const faqs = [
 
       <section class="py-12 lg:py-20 border-b-2 border-rule-border">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12 animate-on-scroll" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
             External Resources
           </h2>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-            {externalResources.map((resource) => (
+            {externalResources.map((resource, i) => (
               <a
                 href={resource.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                 class="bg-white border-2 border-rule-border p-4 lg:p-8 rounded-lg hover:border-forest-green hover:shadow-[4px_4px_0px_0px_rgba(26,60,46,1)] transition-all group"
+                 class={`bg-white border-2 border-rule-border p-4 lg:p-8 rounded-lg hover:border-forest-green hover:shadow-[4px_4px_0px_0px_rgba(26,60,46,1)] transition-all group animate-on-scroll`}
+                 data-delay={String(i + 1)}
               >
                 <div class="flex items-start justify-between mb-4">
                    <div class="w-16 lg:w-20 h-16 lg:h-20 bg-forest-green flex items-center justify-center rounded-lg">
@@ -157,11 +158,11 @@ const faqs = [
 
       <section class="py-12 lg:py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12 animate-on-scroll" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
             Frequently Asked Questions
           </h2>
 
-          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden" id="faq-container">
+          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" id="faq-container">
             {faqs.map((faq, index) => (
               <div class={`${index !== faqs.length - 1 ? "border-b-2 border-rule-border" : ""}`}>
                 <button

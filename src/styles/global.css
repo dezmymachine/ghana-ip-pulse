@@ -24,6 +24,7 @@
   html {
     max-width: 100vw;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -39,7 +40,21 @@
 }
 
 @layer utilities {
-  .radial-glow {
-    background: radial-gradient(ellipse at center, rgba(26, 90, 72, 0.4) 0%, transparent 70%);
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll[data-delay="1"] { transition-delay: 0.1s; }
+  .animate-on-scroll[data-delay="2"] { transition-delay: 0.2s; }
+  .animate-on-scroll[data-delay="3"] { transition-delay: 0.3s; }
+  .animate-on-scroll[data-delay="4"] { transition-delay: 0.4s; }
+  .animate-on-scroll[data-delay="5"] { transition-delay: 0.5s; }
+  .animate-on-scroll[data-delay="6"] { transition-delay: 0.6s; }
 }

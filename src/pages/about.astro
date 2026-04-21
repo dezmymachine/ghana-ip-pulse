@@ -16,7 +16,7 @@ const founders = [
     slug: "esther-mensah",
     name: "Esther Mensah",
     role: "Co-Founder & Strategy Lead",
-    image: "/headshot_2.jpeg",
+    image: "/second_founder.png",
     shortBio: "Esther Mensah is an experienced innovation strategist with a passion for bridging the gap between legal frameworks and creative industries. Her work spans policy development, capacity building for startups, and advocacy for stronger IP ecosystems across West Africa. Esther brings over eight years of experience working with international development organizations and local creative enterprises to build sustainable models for intellectual property protection and commercialization.",
   },
 ];
@@ -24,11 +24,11 @@ const founders = [
 
 <Layout title="About">
   <Navigation />
-  <main class="flex-1 pt-5 lg:pt-6">
+  <main class="flex-1 pt-24 lg:pt-28">
     <div class="bg-cream min-h-[60vh]">
       <section class="py-16 lg:py-24">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 lg:mb-16">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 lg:mb-16 animate-on-scroll">
             <h1 class="font-heading text-4xl lg:text-5xl font-bold text-forest-green">
               Leadership
             </h1>
@@ -38,8 +38,8 @@ const founders = [
           </div>
 
           <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {founders.map((founder) => (
-              <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+            {founders.map((founder, i) => (
+              <article class={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group animate-on-scroll`} data-delay={String(i + 1)}>
                 <div class="aspect-[4/3] bg-[#D4C9B0] overflow-hidden">
                   <ImageWithFallback
                     src={founder.image}

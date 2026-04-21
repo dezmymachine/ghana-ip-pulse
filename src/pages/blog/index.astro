@@ -34,12 +34,12 @@ const getImageUrl = (image: any) => {
 
 <Layout title="Blog">
   <Navigation />
-  <main class="flex-1 pt-5 lg:pt-6">
+  <main class="flex-1 pt-24 lg:pt-28">
     <div class="bg-cream">
       <section class="py-12 lg:py-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
           {blogPosts && blogPosts.length > 0 && (
-            <article class="bg-white rounded-card shadow-lg mb-12 lg:mb-16 overflow-hidden group">
+            <article class="bg-white rounded-card shadow-lg mb-12 lg:mb-16 overflow-hidden group animate-on-scroll">
               <div class="grid lg:grid-cols-2">
                 <div class="aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden">
                   <ImageWithFallback
@@ -74,8 +74,8 @@ const getImageUrl = (image: any) => {
           )}
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts?.slice(1)?.map((post: any) => (
-              <article class="bg-white rounded-card shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+            {blogPosts?.slice(1)?.map((post: any, i: number) => (
+              <article class={`bg-white rounded-card shadow-lg hover:shadow-xl transition-all overflow-hidden group animate-on-scroll`} data-delay={String(i + 1)}>
                 <div class="aspect-[4/3] overflow-hidden">
                   <ImageWithFallback
                     src={getImageUrl(post.mainImage) || "https://images.unsplash.com/photo-1625191824973-894292e94c96?w=800"}

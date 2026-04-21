@@ -172,25 +172,25 @@ const pageTitle = post?.title || "Blog Post";
 
             <main class="flex-1 max-w-3xl">
               {post?.categories && post.categories.length > 0 && (
-                <div class="mb-6">
+                <div class="mb-6 animate-on-scroll">
                   <span class="inline-block bg-warm-gold/10 text-warm-gold px-3 py-1 rounded-pill text-xs font-body font-semibold uppercase tracking-wider">
                     {post.categories[0].title}
                   </span>
                 </div>
               )}
               
-              <h1 class="font-heading text-4xl lg:text-5xl font-bold text-forest-green leading-tight mb-6">
+              <h1 class="font-heading text-4xl lg:text-5xl font-bold text-forest-green leading-tight mb-6 animate-on-scroll" data-delay="1">
                 {post?.title}
               </h1>
-              
+
               {post?.excerpt && (
-                <p class="font-body text-xl text-muted-text leading-relaxed mb-8">
+                <p class="font-body text-xl text-muted-text leading-relaxed mb-8 animate-on-scroll" data-delay="2">
                   {post.excerpt}
                 </p>
               )}
-              
+
               {mainImageUrl && (
-                <div class="mb-10 rounded-card overflow-hidden">
+                <div class="mb-10 rounded-card overflow-hidden animate-on-scroll" data-delay="3">
                   <img 
                     src={mainImageUrl} 
                     alt={post?.title} 
