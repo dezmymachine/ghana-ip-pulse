@@ -5,28 +5,38 @@ import Footer from "../../components/Footer.astro";
 import ImageWithFallback from "../../components/ImageWithFallback.astro";
 
 const education = [
-  { period: "2018-2020", degree: "MSc in Innovation & Strategy", institution: "University of Cambridge, UK" },
-  { period: "2014-2018", degree: "BSc in Business Administration", institution: "University of Ghana, Legon" },
-  { period: "2019", degree: "Certificate in IP Management", institution: "World Intellectual Property Organization (WIPO)" },
-  { period: "2021", degree: "Executive Certificate in Creative Industries Policy", institution: "British Council & University of London" },
+  { period: "2018 – 2024", degree: "Doctor of Pharmacy (PharmD)", institution: "Kwame Nkrumah University of Science and Technology (KNUST), Ghana" },
 ];
 
 const experience = [
-  { period: "2022 - Date", role: "Co-Founder & Strategy Lead", organization: "IP Ghana Initiative" },
-  { period: "2019-2022", role: "Innovation Consultant", organization: "Ministry of Trade & Industry, Ghana" },
-  { period: "2017-2019", role: "Program Associate", organization: "African Development Bank — Creative Sector Desk" },
-  { period: "2015-2017", role: "Research Analyst", organization: "Ghana Investment Promotion Centre" },
+  { period: "2024 – Present", role: "Hospital Pharmacist (Intern/Practice Experience)", organization: "Kumasi South Hospital", details: [
+    "Dispensing medications accurately and ensuring safe drug use",
+    "Providing pharmaceutical interventions to optimize therapy",
+    "Counseling patients on proper medication use and adherence",
+    "Supporting healthcare teams in delivering effective patient care",
+  ]},
+];
+
+const interests = [
+  "Hospital Pharmacy Practice",
+  "Public Health & Patient Education",
+  "Rational Drug Use",
+  "Clinical Interventions & Pharmaceutical Care",
 ];
 
 const projects = [
-  { year: "2024", title: "Creative Ghana IP Framework — National policy proposal for creative sector IP protection" },
-  { year: "2023", title: "Startup IP Toolkit — Open-access resource for Ghanaian startups on trademark and copyright basics" },
-  { year: "2022", title: "West Africa IP Summit — Regional convening bringing together policymakers, creatives, and legal experts" },
-  { year: "2021", title: "Artisan Heritage Project — Pilot program documenting and protecting traditional Kente weaving IP rights" },
+  { title: "Participated in clinical rotations across multiple departments" },
+  { title: "Contributed to patient counseling and education" },
+  { title: "Assisted in resolving drug-related problems" },
+  { title: "Collaborated with healthcare teams to improve outcomes" },
+];
+
+const certifications = [
+  { note: "Currently building professional certifications to enhance clinical and public health expertise" },
 ];
 ---
 
-<Layout title="Esther Mensah">
+<Layout title="Rosina Serwaa Antwi">
   <Navigation />
   <main class="flex-1 pt-24 lg:pt-28">
     <div class="bg-cream">
@@ -42,7 +52,7 @@ const projects = [
               <div class="rounded-card overflow-hidden sticky top-24 w-fit max-w-[280px] shadow-sm animate-on-scroll">
                 <ImageWithFallback
                   src="/second_founder.png"
-                  alt="Esther Mensah"
+                  alt="Rosina Serwaa Antwi"
                   class="w-[280px] h-auto object-cover object-top"
                 />
               </div>
@@ -50,33 +60,30 @@ const projects = [
 
             <div>
               <p class="text-sm uppercase tracking-wider text-warm-gold font-body font-semibold mb-2 animate-on-scroll" data-delay="1">
-                Co-Founder & Strategy Lead
+                Co-Founder & Clinical Pharmacy Lead
               </p>
               <h1 class="font-heading text-3xl lg:text-4xl font-bold text-forest-green mb-6 animate-on-scroll" data-delay="2">
-                Esther Mensah
+                Rosina Serwaa Antwi
               </h1>
 
               <div class="space-y-4 lg:space-y-6 text-base lg:text-lg text-near-black leading-relaxed mb-8 animate-on-scroll" data-delay="3">
                 <p>
-                  Esther Mensah is an experienced innovation strategist with a deep passion for bridging the gap between legal frameworks and creative industries. Her work spans policy development, capacity building for early-stage startups, and advocacy for stronger intellectual property ecosystems across West Africa.
+                  Rosina Serwaa Antwi is a dedicated Pharmacist (PharmD) with a strong focus on hospital pharmacy practice, public health, and patient-centered care. She is passionate about improving health outcomes through effective medication management, patient education, and compassionate clinical service.
                 </p>
                 <p>
-                  With over eight years of experience working alongside international development organizations and local creative enterprises, Esther has developed sustainable models for intellectual property protection and commercialization that are tailored specifically to the Ghanaian context. She believes that every innovator—whether a Kente weaver in Bonwire or a software developer in Accra—deserves clear, accessible pathways to protect their work.
+                  With hands-on experience in hospital settings, Rosina has developed practical skills in drug dispensing, pharmaceutical care, and clinical interventions. She is deeply committed to supporting patients, particularly vulnerable populations, by ensuring safe, rational, and effective use of medicines.
                 </p>
                 <p>
-                  Prior to co-founding this initiative, Esther served as an Innovation Consultant at Ghana's Ministry of Trade and Industry, where she led cross-functional teams on creative economy policy design. She has also worked with the African Development Bank's Creative Sector Desk, supporting programs that connect African creators with global markets while safeguarding their intellectual property rights.
-                </p>
-                <p>
-                  Esther holds an MSc in Innovation and Strategy from the University of Cambridge and a BSc in Business Administration from the University of Ghana. She is a certified IP Management professional through WIPO Academy and regularly speaks at regional forums on the intersection of innovation policy, creative economies, and intellectual property rights.
+                  Her professional interests lie in bridging the gap between clinical pharmacy and public health, with a focus on educating patients and promoting better health practices within communities. As a co-founder, she aims to contribute to innovative healthcare solutions that enhance access to quality pharmaceutical care.
                 </p>
               </div>
 
               <div class="border-l-4 border-warm-gold pl-4 lg:pl-8 py-4 lg:py-6 bg-white rounded-r-lg animate-on-scroll" data-delay="4">
                 <p class="text-lg lg:text-2xl italic text-forest-green leading-relaxed">
-                  "When we make IP protection simple and accessible, we don't just protect ideas—we unlock entire industries."
+                  "Take care of your body the way you take care of your job."
                 </p>
                 <div class="mt-3 lg:mt-4 text-xs lg:text-sm uppercase tracking-wider text-muted-text">
-                  — Esther Mensah
+                  — Rosina Serwaa Antwi
                 </div>
               </div>
             </div>
@@ -116,20 +123,44 @@ const projects = [
             <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
               {experience.map((exp, index) => (
                 <div
-                  class={`grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                  class={`p-4 lg:p-6 ${
                     index !== experience.length - 1 ? "border-b border-rule-border" : ""
                   }`}
                 >
-                  <div class="text-sm lg:text-base font-medium text-warm-gold">
+                  <div class="text-sm lg:text-base font-medium text-warm-gold mb-1">
                     {exp.period}
                   </div>
-                  <div>
-                    <div class="text-base lg:text-lg text-near-black font-medium">
-                      {exp.role}
-                    </div>
-                    <div class="text-sm lg:text-base text-muted-text">
-                      {exp.organization}
-                    </div>
+                  <div class="text-base lg:text-lg text-near-black font-medium">
+                    {exp.role}
+                  </div>
+                  <div class="text-sm lg:text-base text-muted-text mb-3">
+                    {exp.organization}
+                  </div>
+                  {exp.details && (
+                    <ul class="list-disc list-inside space-y-1 text-sm lg:text-base text-muted-text">
+                      {exp.details.map((detail) => (
+                        <li>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
+              Key Areas of Interest
+            </h2>
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
+              {interests.map((interest, index) => (
+                <div
+                  class={`p-4 lg:p-6 ${
+                    index !== interests.length - 1 ? "border-b border-rule-border" : ""
+                  }`}
+                >
+                  <div class="text-base lg:text-lg text-near-black font-medium">
+                    {interest}
                   </div>
                 </div>
               ))}
@@ -138,22 +169,32 @@ const projects = [
 
           <div class="mb-16 lg:mb-24">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
-              Key Projects
+              Key Projects & Contributions
             </h2>
             <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
               {projects.map((project, index) => (
                 <div
-                  class={`grid grid-cols-1 lg:grid-cols-[100px_1fr] gap-3 lg:gap-6 p-4 lg:p-6 ${
+                  class={`p-4 lg:p-6 ${
                     index !== projects.length - 1 ? "border-b border-rule-border" : ""
                   }`}
                 >
-                  <div class="text-sm lg:text-base font-medium text-warm-gold">
-                    {project.year}
+                  <div class="text-base lg:text-lg text-near-black font-medium" style="word-break: break-word;">
+                    {project.title}
                   </div>
-                  <div>
-                    <div class="text-base lg:text-lg text-near-black font-medium" style="word-break: break-word;">
-                      {project.title}
-                    </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-24">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
+              Certifications
+            </h2>
+            <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll" data-delay="1">
+              {certifications.map((cert, index) => (
+                <div class="p-4 lg:p-6">
+                  <div class="text-base lg:text-lg text-muted-text">
+                    {cert.note}
                   </div>
                 </div>
               ))}

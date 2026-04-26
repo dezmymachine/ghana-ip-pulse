@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import netlify from "@astrojs/netlify";
 import sanity from "@sanity/astro";
 import tailwind from "@astrojs/tailwind";
+import react from "@astrojs/react";
 import { loadEnv } from "vite";
 
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
@@ -16,6 +17,7 @@ export default defineConfig({
     edgeFunctions: false,
   }),
   integrations: [
+    react(),
     tailwind(),
     sanity({
       projectId: PUBLIC_SANITY_PROJECT_ID,
