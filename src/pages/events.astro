@@ -17,7 +17,17 @@ const formatDateParts = (dateString: string) => {
   };
 };
 
-const pastEvents: { date: string; title: string; attendees: string }[] = [];
+const pastEvents = [
+  {
+    date: "April 27, 2026",
+    title: "IP and Sports in Ghana",
+    type: "Podcast / Live Stream",
+    image: "https://res.cloudinary.com/dnemeq7mr/image/upload/v1777331966/m5f47tthvwygntmyuc8c.jpg",
+    link: "https://youtu.be/J9smShhh50Q",
+    linkLabel: "Watch on YouTube",
+    description: "This podcast, hosted by Dr. Doreen Adoma Agyei with a panel of KNUST Law students, explores the critical intersection of Intellectual Property Rights and the sports industry in Ghana. The discussion highlights how athletes, clubs, and sports organizations can protect, develop, and monetize their assets through copyright, personality rights, trademarks, and traditional cultural expressions.",
+  },
+];
 ---
 
 <Layout title="Events">
@@ -119,29 +129,50 @@ const pastEvents: { date: string; title: string; attendees: string }[] = [];
             Past Events
           </h2>
 
-          <div class="bg-white border-2 border-rule-border rounded-lg overflow-hidden animate-on-scroll">
-            {pastEvents.length > 0 ? (pastEvents.map((event, index) => (
-              <div
-                class={`grid md:grid-cols-3 gap-4 items-center p-6 ${
-                  index !== pastEvents.length - 1 ? "border-b-2 border-rule-border" : ""
-                }`}
-              >
-                <div class="text-sm uppercase tracking-wider text-muted-text">
-                  {event.date}
+          {pastEvents.length > 0 ? (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pastEvents.map((event, index) => (
+            <article class="bg-white border-2 border-rule-border rounded-lg overflow-hidden hover:shadow-[6px_6px_0px_0px_rgba(26,60,46,0.1)] transition-all group animate-on-scroll" data-delay={String(index + 1)}>
+              <div class="relative overflow-hidden bg-[#D4C9B0] aspect-[16/10]">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="bg-forest-green text-white text-xs uppercase tracking-wider px-3 py-1 rounded-pill">
+                    {event.type}
+                  </span>
                 </div>
-                <div class="text-xl text-near-black">
+              </div>
+
+              <div class="p-5 lg:p-6 flex flex-col">
+                <span class="text-xs uppercase tracking-wider text-warm-gold font-semibold mb-1">{event.date}</span>
+                <h3 class="text-lg lg:text-xl font-bold text-near-black mb-3 group-hover:text-forest-green transition-colors">
                   {event.title}
-                </div>
-                <div class="text-base text-muted-text">
-                  {event.attendees}
-                </div>
+                </h3>
+                <p class="text-sm text-muted-text leading-relaxed mb-5 line-clamp-4">
+                  {event.description}
+                </p>
+                <a
+                  href={event.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-auto bg-forest-green text-white px-5 py-2.5 text-xs uppercase tracking-wider hover:bg-warm-gold hover:text-near-black transition-all inline-flex items-center justify-center gap-2 rounded-pill"
+                >
+                  {event.linkLabel}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
               </div>
-            ))) : (
-              <div class="p-8 lg:p-12 text-center">
-                <p class="text-muted-text text-lg">No past events to display yet.</p>
-              </div>
-            )}
+            </article>
+            ))}
           </div>
+          ) : (
+            <div class="bg-white border-2 border-rule-border rounded-lg p-8 lg:p-12 text-center animate-on-scroll">
+              <p class="text-muted-text text-lg">No past events to display yet.</p>
+            </div>
+          )}
         </div>
       </section>
 
