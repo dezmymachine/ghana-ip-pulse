@@ -12,7 +12,7 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 );
 
 export default defineConfig({
-  output: "static",
+  output: "server",
   adapter: netlify({
     edgeFunctions: false,
   }),
