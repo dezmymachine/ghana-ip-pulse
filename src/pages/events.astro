@@ -2,7 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import ImageWithFallback from "../components/ImageWithFallback.astro";
 import { loadQuery } from "../sanity/lib/load-query";
+import { urlForImage } from "../sanity/lib/url-for-image";
 
 const { data: events } = await loadQuery<any[]>({
   query: `*[_type == "event"] | order(date asc)`,
@@ -15,6 +17,28 @@ const formatDateParts = (dateString: string) => {
     month: date.toLocaleDateString("en-US", { month: "short" }),
     year: date.getFullYear().toString(),
   };
+};
+
+const getImageUrl = (image: any) => {
+  if (!image) return null;
+  try {
+    return urlForImage(image).width(600).url();
+  } catch {
+    return null;
+  }
+};
+
+const getPlainText = (blocks: any): string => {
+  if (!blocks) return "";
+  if (typeof blocks === "string") return blocks;
+  if (!Array.isArray(blocks)) return "";
+  return blocks
+    .map((block: any) => {
+      if (block._type !== "block" || !Array.isArray(block.children)) return "";
+      return block.children.map((child: any) => child.text || "").join("");
+    })
+    .filter(Boolean)
+    .join("\n\n");
 };
 
 const pastEvents = [
@@ -43,6 +67,8 @@ const pastEvents = [
           <div class="space-y-6">
             {events?.length > 0 ? (events.map((event: any, index: number) => {
               const dateParts = formatDateParts(event.date);
+              const flyerUrl = getImageUrl(event.image);
+              const descriptionText = getPlainText(event.description);
               const isFeatured = index === 0;
               return (
                 <article
@@ -52,17 +78,27 @@ const pastEvents = [
                   data-delay={String(index + 1)}
                 >
                   <div class="grid lg:grid-cols-[auto_1fr_auto] gap-8 p-8 lg:p-10">
-                    <div class="flex flex-col items-center justify-center bg-forest-green text-white px-8 py-6 min-w-[140px] rounded-lg">
-                      <div class="text-5xl font-bold leading-none">
-                        {dateParts.day}
+                    {flyerUrl ? (
+                      <div class="min-w-[140px] max-w-[220px] rounded-lg overflow-hidden">
+                        <ImageWithFallback
+                          src={flyerUrl}
+                          alt={event.image?.alt || event.title}
+                          class="w-full h-full object-cover"
+                        />
                       </div>
-                      <div class="text-sm uppercase tracking-wider mt-1">
-                        {dateParts.month}
+                    ) : (
+                      <div class="flex flex-col items-center justify-center bg-forest-green text-white px-8 py-6 min-w-[140px] rounded-lg">
+                        <div class="text-5xl font-bold leading-none">
+                          {dateParts.day}
+                        </div>
+                        <div class="text-sm uppercase tracking-wider mt-1">
+                          {dateParts.month}
+                        </div>
+                        <div class="text-sm tracking-wider text-warm-gold">
+                          {dateParts.year}
+                        </div>
                       </div>
-                      <div class="text-sm tracking-wider text-warm-gold">
-                        {dateParts.year}
-                      </div>
-                    </div>
+                    )}
 
                     <div>
                       {isFeatured && (
@@ -81,7 +117,7 @@ const pastEvents = [
                         {event.title}
                       </h3>
                       <p class="text-base text-muted-text leading-relaxed mb-6">
-                        {event.description ? event.description : ""}
+                        {descriptionText}
                       </p>
 
                       <div class="flex flex-wrap gap-6 text-sm text-muted-text">

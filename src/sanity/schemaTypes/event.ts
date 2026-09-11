@@ -41,6 +41,21 @@ export const eventType = defineType({
       type: "blockContent",
     }),
     defineField({
+      name: "image",
+      title: "Event Flyer",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative Text",
+        },
+      ],
+    }),
+    defineField({
       name: "registrationLink",
       type: "url",
     }),
@@ -49,11 +64,13 @@ export const eventType = defineType({
     select: {
       title: "title",
       date: "date",
+      media: "image",
     },
     prepare(selection) {
-      const { title, date } = selection;
+      const { title, date, media } = selection;
       return { 
         title, 
+        media,
         subtitle: date ? new Date(date).toLocaleDateString() : undefined 
       };
     },
