@@ -5,11 +5,17 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image, ogType = "website", noindex = false } = Astro.props;
 const pageTitle = title ? `${title} | Ghana IP Pulse` : "Ghana IP Pulse";
 const metaDescription = description || "Expert guidance on intellectual property law for entrepreneurs, creatives, and students navigating Ghana's innovation landscape.";
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const ogImage = image ? new URL(image, Astro.site ?? Astro.url).href : undefined;
 
 const visualEditingEnabled =
   import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED === "true";
@@ -23,6 +29,19 @@ const visualEditingEnabled =
     <meta name="description" content={metaDescription} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{pageTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:site_name" content="Ghana IP Pulse" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <slot name="head" />
   </head>
   <body>
     <slot />
