@@ -11,3 +11,10 @@
   to = "/sitemap-index.xml"
   status = 200
   force = true
+
+# Canonical URLs have no trailing slash
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = true

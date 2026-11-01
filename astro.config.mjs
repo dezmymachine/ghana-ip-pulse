@@ -23,7 +23,7 @@ async function getBlogUrls() {
       `https://${PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2025-01-28/data/query/${PUBLIC_SANITY_DATASET}?query=${query}`
     );
     const { result = [] } = await res.json();
-    return result.map((slug) => new URL(`/blog/${slug}/`, siteUrl).href);
+    return result.map((slug) => new URL(`/blog/${slug}`, siteUrl).href);
   } catch (err) {
     console.warn("[sitemap] could not fetch blog slugs from Sanity:", err.message);
     return [];
@@ -32,6 +32,7 @@ async function getBlogUrls() {
 
 export default defineConfig({
   site: siteUrl,
+  trailingSlash: "never",
   output: "server",
   adapter: netlify({
     edgeFunctions: false,

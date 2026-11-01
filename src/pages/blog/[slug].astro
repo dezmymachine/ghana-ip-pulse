@@ -68,7 +68,7 @@ const articleJsonLd = post && {
   datePublished: post.publishedAt,
   author: post.author?.name ? { "@type": "Person", name: post.author.name } : undefined,
   publisher: { "@type": "Organization", name: "Ghana IP Pulse" },
-  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site ?? Astro.url).href,
+  mainEntityOfPage: new URL(Astro.url.pathname.replace(/\/+$/, ""), Astro.site ?? Astro.url).href,
 };
 ---
 
