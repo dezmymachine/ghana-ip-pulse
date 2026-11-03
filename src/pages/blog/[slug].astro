@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import PortableText from "../../components/PortableText.astro";
 import { loadQuery } from "../../sanity/lib/load-query";
 import { urlForImage } from "../../sanity/lib/url-for-image";
+import { displayTitle } from "../../sanity/lib/post-utils";
 
 export async function getStaticPaths() {
   const { data: posts } = await loadQuery<any[]>({
@@ -89,7 +90,7 @@ const articleJsonLd = post && {
             )}
             
             <h1 class="font-heading text-2xl md:text-3xl font-bold text-forest-green leading-tight">
-              {post?.title}
+              {displayTitle(post?.title)}
             </h1>
             
             {post?.excerpt && (
@@ -123,7 +124,7 @@ const articleJsonLd = post && {
         
         {mainImageUrl && (
           <div class="w-full px-4">
-            <div class="aspect-[4/3] rounded-card overflow-hidden">
+            <div class="aspect-[16/10] rounded-lg overflow-hidden" transition:name={`post-image-${post.slug.current}`}>
               <img 
                 src={mainImageUrl} 
                 alt={imageAlt} 
@@ -141,15 +142,15 @@ const articleJsonLd = post && {
       </div>
 
       <div class="hidden lg:block">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12">
-          <div class="flex gap-12">
-            <aside class="w-32 flex-shrink-0 sticky top-28 h-fit">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-10">
+          <div class="flex gap-10">
+            <aside class="w-28 flex-shrink-0 sticky top-28 h-fit">
               <div class="space-y-6">
                 {post?.author && (
                   <div class="space-y-2">
                     <div class="font-body text-xs text-muted-text uppercase tracking-wide">Written by</div>
                     <div class="flex flex-col items-start gap-2">
-                      <div class="w-12 h-12 rounded-full bg-forest-green flex items-center justify-center text-white font-heading font-bold text-lg">
+                      <div class="w-10 h-10 rounded-full bg-forest-green flex items-center justify-center text-white font-heading font-bold text-base">
                         {post.author.name.charAt(0)}
                       </div>
                       <span class="font-body text-sm font-semibold text-forest-green">
@@ -171,18 +172,18 @@ const articleJsonLd = post && {
                 <div class="space-y-1">
                   <div class="font-body text-xs text-muted-text uppercase tracking-wide">Share</div>
                   <div class="flex flex-col gap-2">
-                    <button class="w-10 h-10 rounded-full border-2 border-forest-green/20 flex items-center justify-center hover:bg-forest-green hover:text-white transition-colors group">
-                      <svg class="w-5 h-5 text-forest-green group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button class="w-8 h-8 rounded-full border-2 border-forest-green/20 flex items-center justify-center hover:bg-forest-green hover:text-white transition-colors group">
+                      <svg class="w-4 h-4 text-forest-green group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                       </svg>
                     </button>
-                    <button class="w-10 h-10 rounded-full border-2 border-forest-green/20 flex items-center justify-center hover:bg-forest-green hover:text-white transition-colors group">
-                      <svg class="w-5 h-5 text-forest-green group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <button class="w-8 h-8 rounded-full border-2 border-forest-green/20 flex items-center justify-center hover:bg-forest-green hover:text-white transition-colors group">
+                      <svg class="w-4 h-4 text-forest-green group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                       </svg>
                     </button>
-                    <button class="w-10 h-10 rounded-full border-2 border-forest-green/20 flex items-center justify-center hover:bg-forest-green hover:text-white transition-colors group">
-                      <svg class="w-5 h-5 text-forest-green group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <button class="w-8 h-8 rounded-full border-2 border-forest-green/20 flex items-center justify-center hover:bg-forest-green hover:text-white transition-colors group">
+                      <svg class="w-4 h-4 text-forest-green group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                       </svg>
                     </button>
@@ -191,7 +192,7 @@ const articleJsonLd = post && {
               </div>
             </aside>
 
-            <main class="flex-1 max-w-3xl">
+            <main class="flex-1 min-w-0 max-w-[44rem]">
               {post?.categories && post.categories.length > 0 && (
                 <div class="mb-6 animate-on-scroll">
                   <span class="inline-block bg-warm-gold/10 text-warm-gold px-3 py-1 rounded-pill text-xs font-body font-semibold uppercase tracking-wider">
@@ -200,27 +201,27 @@ const articleJsonLd = post && {
                 </div>
               )}
               
-              <h1 class="font-heading text-4xl lg:text-5xl font-bold text-forest-green leading-tight mb-6 animate-on-scroll" data-delay="1">
-                {post?.title}
+              <h1 class="font-heading text-h1 font-bold text-forest-green mb-4 animate-on-scroll" data-delay="1">
+                {displayTitle(post?.title)}
               </h1>
 
               {post?.excerpt && (
-                <p class="font-body text-xl text-muted-text leading-relaxed mb-8 animate-on-scroll" data-delay="2">
+                <p class="font-body text-lg text-muted-text leading-relaxed mb-6 animate-on-scroll" data-delay="2">
                   {post.excerpt}
                 </p>
               )}
 
               {mainImageUrl && (
-                <div class="mb-10 rounded-card overflow-hidden animate-on-scroll" data-delay="3">
+                <div class="mb-8 rounded-lg overflow-hidden aspect-[16/9]" transition:name={`post-image-${post.slug.current}`}>
                   <img 
                     src={mainImageUrl} 
                     alt={imageAlt} 
-                    class="w-full h-auto object-cover"
+                    class="w-full h-full object-cover"
                   />
                 </div>
               )}
               
-              <div class="article-content font-body text-lg text-near-black leading-relaxed">
+              <div class="article-content font-body text-[1.0625rem] text-near-black leading-[1.7]">
                 {post?.body && <PortableText portableText={post.body} />}
               </div>
             </main>
@@ -234,32 +235,31 @@ const articleJsonLd = post && {
 
 <style>
   .article-content :global(h1) {
-    @apply font-heading text-2xl font-bold text-forest-green mt-8 mb-4;
+    @apply font-heading text-2xl font-bold text-forest-green mt-10 mb-3;
   }
   .article-content :global(h2) {
-    @apply font-heading text-xl font-bold text-forest-green mt-6 mb-3;
+    @apply font-heading text-xl font-bold text-forest-green mt-10 mb-3;
   }
   .article-content :global(h3) {
-    @apply font-heading text-lg font-semibold text-forest-green mt-5 mb-2;
+    @apply font-heading text-lg font-semibold text-forest-green mt-8 mb-2;
   }
   .article-content :global(p) {
-    @apply mb-4 leading-relaxed;
+    @apply mb-5;
   }
   .article-content :global(blockquote) {
-    @apply border-l-4 border-warm-gold pl-4 py-2 my-6 bg-forest-green/5 rounded-r-lg;
+    @apply border-l-4 border-warm-gold pl-4 py-2 my-6 bg-forest-green/5 rounded-r-lg text-lg;
   }
   .article-content :global(a) {
     @apply text-warm-gold hover:text-forest-green underline underline-offset-2;
   }
   .article-content :global(ul),
   .article-content :global(ol) {
-    @apply my-4 pl-6;
+    @apply my-5 pl-5;
   }
+  .article-content :global(ul) { list-style: disc; }
+  .article-content :global(ol) { list-style: decimal; }
   .article-content :global(li) {
     @apply mb-2;
-  }
-  .article-content :global(img) {
-    @apply rounded-card my-6 w-full max-w-full h-auto;
   }
   .article-content :global(strong) {
     @apply font-semibold text-forest-green;

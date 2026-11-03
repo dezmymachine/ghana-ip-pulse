@@ -1,0 +1,25 @@
+---
+import ImageWithFallback from "./ImageWithFallback.astro";
+import { getImageUrl, displayTitle, postMeta } from "../sanity/lib/post-utils";
+
+const { post } = Astro.props;
+const href = `/blog/${post.slug.current}`;
+---
+
+<a href={href} class="group block">
+  <div class="aspect-[16/9] overflow-hidden rounded-lg" transition:name={`post-image-${post.slug.current}`}>
+    <ImageWithFallback
+      src={getImageUrl(post.mainImage, 1000)}
+      alt={post.title}
+      class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+    />
+  </div>
+  <div class="eyebrow text-warm-gold mt-4 mb-2">{post.categories?.[0]?.title || "Article"}</div>
+  <h2 class="font-heading text-xl lg:text-2xl font-bold leading-tight tracking-tight text-forest-green group-hover:text-warm-gold transition-colors">
+    {displayTitle(post.title)}
+  </h2>
+  {post.excerpt && (
+    <p class="text-[0.9375rem] text-muted-text leading-relaxed mt-2 line-clamp-3">{post.excerpt}</p>
+  )}
+  <div class="text-xs text-muted-text mt-3">{postMeta(post)}</div>
+</a>

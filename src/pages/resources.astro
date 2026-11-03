@@ -112,13 +112,13 @@ const faqs = [
   <Navigation />
   <main class="flex-1 pt-16">
     <div class="bg-cream max-w-full overflow-x-hidden">
-      <section class="py-12 lg:py-20 border-b-2 border-rule-border">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <section class="py-12 lg:py-12 lg:py-14 border-b-2 border-rule-border">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
           <div class="mb-8 lg:mb-12 animate-on-scroll">
             <div class="inline-flex items-center gap-2 border border-forest-green/30 text-forest-green px-4 py-2 rounded-pill text-sm font-body mb-6">
               Knowledge Base
             </div>
-            <h2 class="font-heading text-forest-green font-bold" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+            <h2 class="font-heading text-forest-green font-bold">
               Resources & Publications
             </h2>
           </div>
@@ -131,7 +131,7 @@ const faqs = [
 
               return (
                 <article
-                  class="bg-white rounded-card shadow-lg hover:shadow-xl transition-all overflow-hidden group animate-on-scroll flex flex-col"
+                  class="bg-white rounded-card shadow-sm hover:shadow-xl transition-all overflow-hidden group animate-on-scroll flex flex-col"
                   data-delay={String(i + 1)}
                 >
                   {resource.mainImage ? (
@@ -228,9 +228,9 @@ const faqs = [
         </div>
       </section>
 
-      <section class="py-12 lg:py-20 border-b-2 border-rule-border">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12 animate-on-scroll" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+      <section class="py-12 lg:py-12 lg:py-14 border-b-2 border-rule-border">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 class="font-heading text-h2 font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
             External Resources
           </h2>
 
@@ -263,9 +263,9 @@ const faqs = [
         </div>
       </section>
 
-      <section class="py-12 lg:py-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 class="text-2xl lg:text-4xl font-bold text-forest-green mb-8 lg:mb-12 animate-on-scroll" style="font-size: clamp(28px, 6vw, 48px); word-break: break-word;">
+      <section class="py-12 lg:py-12 lg:py-14">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 class="font-heading text-h2 font-bold text-forest-green mb-6 lg:mb-8 animate-on-scroll">
             Frequently Asked Questions
           </h2>
 
@@ -300,6 +300,7 @@ const faqs = [
 </Layout>
 
 <script>
+  document.addEventListener("astro:page-load", () => {
   const toggles = document.querySelectorAll(".faq-toggle");
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -312,5 +313,6 @@ const faqs = [
       plusIcon?.classList.toggle("hidden");
       minusIcon?.classList.toggle("hidden");
     });
+  });
   });
 </script>

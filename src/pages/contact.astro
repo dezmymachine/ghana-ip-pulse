@@ -37,14 +37,14 @@ const contacts = [
     <div class="bg-cream min-h-[60vh]">
       <section class="py-16 lg:py-24">
         <div class="max-w-5xl mx-auto px-6 lg:px-12">
-          <h1 class="font-heading text-4xl lg:text-5xl font-bold text-forest-green mb-4 animate-on-scroll">
+          <h1 class="font-heading text-h2 font-bold text-forest-green mb-4 animate-on-scroll">
             Contact
           </h1>
-          <p class="text-lg lg:text-xl text-muted-text max-w-2xl mb-12 lg:mb-16 leading-relaxed animate-on-scroll" data-delay="1">
+          <p class="text-lg lg:text-xl text-muted-text max-w-2xl mb-12 lg:mb-10 leading-relaxed animate-on-scroll" data-delay="1">
             For IP guidance, partnership opportunities, or any questions about my work, I'd be glad to hear from you. I aim to respond within 2–3 business days.
           </p>
 
-          <div class="grid md:grid-cols-2 gap-4 lg:gap-6 mb-12 lg:mb-16">
+          <div class="grid md:grid-cols-2 gap-4 lg:gap-6 mb-12 lg:mb-10">
             {contacts.map((contact, i) => (
               <a
                 href={contact.href}
@@ -97,6 +97,7 @@ const contacts = [
 </Layout>
 
 <script>
+  document.addEventListener("astro:page-load", () => {
   document.querySelectorAll(".copy-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -115,5 +116,6 @@ const contacts = [
         }, 1500);
       }
     });
+  });
   });
 </script>

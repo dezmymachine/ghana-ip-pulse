@@ -2,9 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
-import ImageWithFallback from "../../components/ImageWithFallback.astro";
+import ArticleLead from "../../components/ArticleLead.astro";
+import ArticleRow from "../../components/ArticleRow.astro";
 import { loadQuery } from "../../sanity/lib/load-query";
-import { urlForImage } from "../../sanity/lib/url-for-image";
 
 const { data: blogPosts } = await loadQuery<any[]>({
   query: `*[_type == "post"] | order(publishedAt desc) {
@@ -13,96 +13,44 @@ const { data: blogPosts } = await loadQuery<any[]>({
     publishedAt,
     excerpt,
     mainImage,
+    "readTime": round(length(pt::text(body)) / 5 / 200),
     categories[]->{ title }
   }`,
 });
 
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-};
-
-const getImageUrl = (image: any) => {
-  if (!image) return null;
-  try {
-    return urlForImage(image).width(800).url();
-  } catch (e) {
-    return null;
-  }
-};
+const lead = blogPosts?.[0];
+const sideRows = blogPosts?.slice(1, 5) ?? [];
+const moreRows = blogPosts?.slice(5) ?? [];
 ---
 
 <Layout title="Blog" description="Articles from Ghana IP Pulse on copyright, trademarks, collective management and other intellectual property issues affecting Ghana.">
   <Navigation />
   <main class="flex-1 pt-16">
     <div class="bg-cream">
-      <section class="py-12 lg:py-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          {blogPosts && blogPosts.length > 0 && (
-            <article class="bg-white rounded-card shadow-lg mb-12 lg:mb-16 overflow-hidden group animate-on-scroll">
-              <div class="grid lg:grid-cols-2">
-                <div class="aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden">
-                  <ImageWithFallback
-                    src={getImageUrl(blogPosts[0].mainImage) || "https://images.unsplash.com/photo-1625191824973-894292e94c96?w=800"}
-                    alt={blogPosts[0].title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div class="p-6 lg:p-10 flex flex-col justify-center">
-                  <div class="mb-3">
-                    <span class="inline-block bg-warm-gold/10 text-warm-gold px-3 py-1 rounded-pill text-xs font-body font-semibold uppercase tracking-wider">
-                      Featured · {blogPosts[0].categories?.[0]?.title || "Article"}
-                    </span>
-                  </div>
-                  <h2 class="text-xl lg:text-3xl font-bold text-forest-green mb-4 group-hover:text-warm-gold transition-colors">
-                    <a href={`/blog/${blogPosts[0].slug.current}`}>{blogPosts[0].title}</a>
-                  </h2>
-                  <p class="text-sm lg:text-base text-muted-text leading-relaxed mb-4 line-clamp-2">
-                    {blogPosts[0].excerpt}
-                  </p>
-                  <div class="flex items-center gap-4 text-xs text-muted-text">
-                    <span class="flex items-center gap-1">
-                      {blogPosts[0].publishedAt ? formatDate(blogPosts[0].publishedAt) : ""}
-                    </span>
-                    <a href={`/blog/${blogPosts[0].slug.current}`} class="text-warm-gold font-medium hover:underline">
-                      Read more
-                    </a>
-                  </div>
-                </div>
+      <section class="py-8 lg:py-12">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <header class="mb-6 lg:mb-8 pb-4 border-b-2 border-forest-green">
+            <h1 class="font-heading text-h2 font-bold text-forest-green">Articles</h1>
+            <p class="text-sm text-muted-text mt-1">Practical intellectual property insights for Ghana's creators, businesses and students.</p>
+          </header>
+
+          {lead && (
+            <div class="grid lg:grid-cols-[1.15fr_1fr] gap-8 lg:gap-12">
+              <ArticleLead post={lead} />
+              <div class="lg:-mt-4">
+                {sideRows.map((post: any) => <ArticleRow post={post} />)}
               </div>
-            </article>
+            </div>
           )}
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts?.slice(1)?.map((post: any, i: number) => (
-              <article class={`bg-white rounded-card shadow-lg hover:shadow-xl transition-all overflow-hidden group animate-on-scroll`} data-delay={String(i + 1)}>
-                <div class="aspect-[4/3] overflow-hidden">
-                  <ImageWithFallback
-                    src={getImageUrl(post.mainImage) || "https://images.unsplash.com/photo-1625191824973-894292e94c96?w=800"}
-                    alt={post.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div class="p-5">
-                  <div class="mb-3">
-                    <span class="inline-block bg-warm-gold/10 text-warm-gold px-2 py-1 rounded-pill text-xs font-body font-medium">
-                      {post.categories?.[0]?.title || "Article"}
-                    </span>
-                  </div>
-                  <h3 class="font-heading text-lg font-bold text-forest-green mb-2 group-hover:text-warm-gold transition-colors">
-                    <a href={`/blog/${post.slug.current}`}>{post.title}</a>
-                  </h3>
-                  <p class="font-body text-sm text-muted-text leading-relaxed mb-3 line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  <div class="flex items-center justify-between text-xs font-body text-muted-text">
-                    <span>{post.publishedAt ? formatDate(post.publishedAt) : ""}</span>
-                    <a href={`/blog/${post.slug.current}`} class="text-warm-gold hover:underline">Read more</a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          {moreRows.length > 0 && (
+            <div class="mt-10 lg:mt-14">
+              <h2 class="eyebrow text-forest-green pb-2 border-b-2 border-forest-green">More articles</h2>
+              <div class="grid lg:grid-cols-2 lg:gap-x-12">
+                {moreRows.map((post: any) => <ArticleRow post={post} />)}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </div>
